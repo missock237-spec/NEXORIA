@@ -14,7 +14,7 @@ import { QUALITY_PROFILES, loadQualityProfile } from '@/lib/game/config'
 export type Phase =
   | 'title' | 'auth' | 'charselect' | 'name' | 'race' | 'creator'
   | 'class' | 'equipment' | 'review' | 'creating' | 'loading' | 'village'
-  | 'arenas' | 'arena' | 'codex' | 'boss' | 'supreme'
+  | 'arenas' | 'arena' | 'codex' | 'boss' | 'supreme' | 'province'
 
 // ── Arènes : adversaire désigné par le matchmaking serveur ──
 export interface MatchOpponent {
@@ -110,6 +110,9 @@ interface CreatorState {
   // État « Les 10 Suprêmes en 3D »
   activeSupremeId: SupremeId | null
 
+  // État « Province de Solmère » (monde multijoueur persistant)
+  provinceCharacterId: string | null
+
   setPhase: (p: Phase) => void
   setAccount: (a: { accountId: string; email: string } | null) => void
   setCharacters: (c: CharacterSummary[]) => void
@@ -123,6 +126,7 @@ interface CreatorState {
   setActiveMatch: (m: ActiveMatch | null) => void
   setActiveEncounter: (e: BossEncounter | null) => void
   setActiveSupremeId: (id: SupremeId | null) => void
+  setProvinceCharacterId: (id: string | null) => void
   setQuality: (q: QualityProfile['id']) => void
   setError: (e: string | null) => void
   initPlatform: () => void
@@ -146,6 +150,7 @@ export const useCreatorStore = create<CreatorState>((set) => ({
   activeMatch: null,
   activeEncounter: null,
   activeSupremeId: null,
+  provinceCharacterId: null,
 
   setPhase: (p) => set((s) => ({ phase: p, previousPhase: s.phase, error: null })),
   setAccount: (a) => set({ account: a }),
@@ -161,6 +166,7 @@ export const useCreatorStore = create<CreatorState>((set) => ({
   setActiveMatch: (m) => set({ activeMatch: m }),
   setActiveEncounter: (e) => set({ activeEncounter: e }),
   setActiveSupremeId: (id) => set({ activeSupremeId: id }),
+  setProvinceCharacterId: (id) => set({ provinceCharacterId: id }),
   setQuality: (q) => {
     try { window.localStorage.setItem('nexoria_quality', q) } catch { /* ignore */ }
     set({ quality: QUALITY_PROFILES[q] })

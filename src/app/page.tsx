@@ -22,6 +22,7 @@ import { ArenaDuelScreen } from '@/components/screens/ArenaDuelScreen'
 import { CodexScreen } from '@/components/screens/CodexScreen'
 import { BossScreen } from '@/components/screens/BossScreen'
 import { SupremeScreen } from '@/components/screens/SupremeScreen'
+import { ProvinceScreen } from '@/components/screens/ProvinceScreen'
 import type { WorldConfig } from '@/lib/store'
 
 export default function Home() {
@@ -80,6 +81,7 @@ export default function Home() {
       {phase === 'codex' && <CodexScreen />}
       {phase === 'boss' && <BossScreen />}
       {phase === 'supreme' && <SupremeScreen />}
+      {phase === 'province' && <ProvinceScreen />}
     </main>
   )
 }

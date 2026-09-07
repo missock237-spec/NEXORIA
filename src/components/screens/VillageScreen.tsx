@@ -21,7 +21,7 @@ interface DialogData {
 }
 
 export function VillageScreen() {
-  const { activeWorld, setPhase, setCharacters, quality, setQuality, isMobile } = useCreatorStore()
+  const { activeWorld, setPhase, setCharacters, quality, setQuality, isMobile, setProvinceCharacterId } = useCreatorStore()
   const [introDone, setIntroDone] = useState(false)
   const [near, setNear] = useState<typeof playerState.near>(null)
   const [dialog, setDialog] = useState<DialogData | null>(null)
@@ -223,6 +223,12 @@ export function VillageScreen() {
 
       {/* ── HUD haut droite : quête + qualité ── */}
       <div className="absolute right-3 top-3 z-10 flex flex-col items-end gap-2">
+        <button
+          onClick={() => { setProvinceCharacterId(character.id); setPhase('province') }}
+          className="min-h-[38px] rounded-sm border border-[#7ad87a66] bg-[#0c1a10cc] px-3 text-[10px] font-black uppercase tracking-widest text-[#a8e8a8] backdrop-blur-sm"
+        >
+          ⚔ Province de Solmère
+        </button>
         <button
           onClick={() => setShowSettings((v) => !v)}
           className="min-h-[38px] rounded-sm border border-[#b8985c55] bg-[#0c0a14cc] px-3 text-[10px] font-bold uppercase tracking-widest text-[#c8c0d8] backdrop-blur-sm"

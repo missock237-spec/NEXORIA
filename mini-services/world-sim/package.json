@@ -1,0 +1,16 @@
+{
+  "name": "nexoria-world-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEXORIA — Serveur de simulation du monde persistant (autoritaire). Province de Solmère : multijoueur temps réel, PNJ à mort définitive, destruction/reconstruction, événements mondiaux, donjon persistant, agents Gen3ia.",
+  "scripts": {
+    "dev": "bun --hot index.ts",
+    "start": "bun index.ts"
+  },
+  "dependencies": {
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "bun-types": "^1.3.4"
+  }
+}

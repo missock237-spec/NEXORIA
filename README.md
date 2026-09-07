@@ -6,6 +6,29 @@
 
 ![Carte du monde](WorldData/maps/world_map.png)
 
+
+## MONDE PERSISTANT MULTIJOUEUR — Vertical Slice « Province de Solmère » ✅
+
+Un monde 3D **réellement multijoueur et persistant** est jouable de bout en bout :
+serveur de simulation autoritaire (15 Hz), 16 PNJ à **mort définitive**, bâtiments
+destructibles/reconstructibles (7 états visibles), événements mondiaux (invasions),
+donjon persistant, agents **Gen3ia**, contrôles PC + Android paysage.
+
+```bash
+# Serveur de simulation du monde (port 3003) :
+cd mini-services/world-sim && bun run dev
+# Tests complets du monde (51 assertions) :
+bun scripts/test_world_sim.mjs
+```
+
+Parcours : connexion → personnage → village → « ⚔ Province de Solmère ».
+Documentation complète : `Documentation/mmo/` (ARCHITECTURE, WORLD_SYSTEM,
+NPC_SYSTEM, PERMADEATH_SYSTEM, BUILDING_SYSTEM, DESTRUCTION_SYSTEM,
+RECONSTRUCTION_SYSTEM, DUNGEON_SYSTEM, MULTIPLAYER, ANDROID, GEN3IA_INTEGRATION,
+DATABASE, ASSET_PIPELINE, OPTIMIZATION, TESTING, REALISATION_VERTICAL_SLICE).
+
+---
+
 ## Démarrage rapide
 
 ```bash

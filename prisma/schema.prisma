@@ -132,3 +132,151 @@ model SupremeEncounter {
   @@index([status])
 }
 
+
+// ═══════════════════════════════════════════════════════════════
+// MONDE PERSISTANT — Vertical Slice « Province de Solmère »
+// Le serveur de simulation (world-sim) est l'autorité exclusive
+// sur ces tables. Le client ne propose jamais d'état critique.
+// ═══════════════════════════════════════════════════════════════
+
+// ── ÉTAT GLOBAL du monde (une ligne, id fixe) ──
+model WorldState {
+  id           String   @id @default("solmere")
+  timeOfDay    Float    @default(28800) // secondes du jour en jeu (0..86400)
+  dayCount     Int      @default(1)
+  prosperity   Float    @default(100)   // prospérité du village (0..200)
+  weather      String   @default("clair")
+  simTicks     Int      @default(0)     // nombre de ticks simulés (diagnostic)
+  updatedAt    DateTime @updatedAt
+}
+
+// ── PNJ PERSISTANT — mort définitive, JAMAIS de respawn ──
+model Npc {
+  id              String   @id // id déterministe (npc_solmere_XX)
+  name            String
+  race            String
+  age             Int
+  profession      String?  // forgeron | garde | fermier | marchand | aubergiste | apothicaire | elder
+  buildingId      String?  // lieu de travail (Building.id)
+  homeId          String?  // logement (Building.id)
+  familyJson      String   @default("[]") // ids de la famille
+  personalityJson String   @default("{}")
+  x               Float
+  z               Float
+  homeX           Float    @default(0)
+  homeZ           Float    @default(0)
+  workX           Float    @default(0)
+  workZ           Float    @default(0)
+  hp              Int
+  maxHp           Int
+  level           Int      @default(1)
+  faction         String   @default("village")
+  lifeState       String   @default("ALIVE") // ALIVE | INJURED | DEAD
+  memoryJson      String   @default("[]")    // mémoire Gen3ia (événements vécus)
+  isGuard         Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([lifeState])
+}
+
+// ── MORT DÉFINITIVE d'un PNJ — enregistrement irréversible ──
+model NpcDeath {
+  id        String   @id @default(cuid())
+  npcId     String
+  npcName   String
+  killer    String   // 'monster:xxx' | 'player:characterId' | 'world'
+  cause     String
+  dayCount  Int
+  timeOfDay Float
+  createdAt DateTime @default(now())
+
+  @@index([npcId])
+}
+
+// ── BÂTIMENT destructible / reconstructible (vraie géométrie 3D côté client) ──
+model Building {
+  id               String   @id
+  type             String   // forge | maison | auberge | marche | garde | tour | mur
+  label            String
+  x                Float
+  z                Float
+  rotY             Float    @default(0)
+  ownerId          String?  // npcId ou null (= bien communal)
+  hp               Int
+  maxHp            Int
+  state            String   @default("INTACT") // INTACT|DAMAGED|HEAVILY_DAMAGED|DESTROYED|RUINS|RECONSTRUCTION|RESTORED
+  economicFunction String   @default("none")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([state])
+}
+
+// ── PROJET DE RECONSTRUCTION — matériaux déposés, progression visible 3D ──
+model ConstructionProject {
+  id             String   @id @default(cuid())
+  buildingId     String   @unique
+  requiredBois   Int
+  requiredPierre Int
+  requiredFer    Int
+  depositedBois  Int      @default(0)
+  depositedPierre Int     @default(0)
+  depositedFer   Int      @default(0)
+  progress       Float    @default(0) // 0..100
+  active         Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// ── ÉVÉNEMENT MONDIAL persistant ──
+model WorldEvent {
+  id               String    @id @default(cuid())
+  type             String    // INVASION | MIGRATION | RECONSTRUCTION_AIDE | ...
+  title            String
+  description      String
+  zone             String
+  status           String    @default("ACTIVE") // ACTIVE | RESOLVED | CONCLUDED
+  startedAt        DateTime  @default(now())
+  endedAt          DateTime?
+  consequencesJson String    @default("[]")
+  participantsJson String    @default("[]")
+
+  @@index([status])
+}
+
+// ── ÉTAT PERSISTANT D'UN DONJON (portes détruites restent détruites) ──
+model DungeonState {
+  id            String    @id @default(cuid())
+  dungeonId     String
+  doorHp        Int       @default(120)
+  doorState     String    @default("INTACT") // INTACT | DAMAGED | DESTROYED
+  bossAlive     Boolean   @default(true)
+  bossRespawnAt DateTime?
+  bossKillCount Int       @default(0)
+  switchesJson  String    @default("[]")
+  chestsJson    String    @default("[]")
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([dungeonId])
+}
+
+// ── ÉTAT DE PROVINCE d'un personnage — serveur-autoritaire ──
+model ProvinceState {
+  id              String   @id @default(cuid())
+  characterId     String   @unique
+  x               Float
+  z               Float
+  hp              Int
+  mp              Int
+  level           Int      @default(1)
+  xp              Int      @default(0)
+  gold            Int      @default(0)
+  inventoryJson   String   @default("{}") // {bois,pierre,fer,potion} — JAMAIS édité par le client
+  questsJson      String   @default("[]")
+  discoveriesJson String   @default("[]")
+  deaths          Int      @default(0)
+  kills           Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

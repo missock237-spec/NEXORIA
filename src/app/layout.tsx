@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -18,17 +18,18 @@ export const metadata: Metadata = {
   description: "Créez votre compte, forgez votre identité, choisissez votre race parmi 9 peuples, personnalisez votre avatar 3D et apparaissez dans votre village de départ. MMORPG fantastique NEXORIA.",
   keywords: ["NEXORIA", "MMORPG", "création de personnage", "jeu 3D", "fantasy", "race", "classe"],
   authors: [{ name: "NEXORIA" }],
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
   twitter: {
     card: "summary_large_image",
     title: "Z.ai Code Scaffold",
     description: "AI-powered development with modern React stack",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
