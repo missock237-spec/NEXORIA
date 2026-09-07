@@ -5055,7 +5055,8 @@
     }
    },
    "site_seed": 1719131668,
-   "npc_routines": true
+   "npc_routines": true,
+   "terrain_flattened": true
   },
   {
    "id": "SETT_005",
@@ -5639,7 +5640,7 @@
    "world": [
     2112.0,
     6336.0,
-    110.0
+    109.8
    ],
    "region": "REGION_153",
    "continent": "CONT_01",
@@ -6205,7 +6206,8 @@
     }
    },
    "site_seed": 589401528,
-   "npc_routines": true
+   "npc_routines": true,
+   "terrain_flattened": true
   },
   {
    "id": "SETT_007",
@@ -17523,7 +17525,9 @@
     ]
    },
    "site_seed": 755704521,
-   "npc_routines": true
+   "npc_routines": true,
+   "ground_raised": true,
+   "terrain_flattened": true
   },
   {
    "id": "SETT_041",
@@ -27624,7 +27628,7 @@
    "world": [
     -7360.0,
     -15296.0,
-    237.0
+    237.2
    ],
    "region": "REGION_071",
    "continent": "CONT_01",
@@ -27717,7 +27721,8 @@
     ]
    },
    "site_seed": 1299575511,
-   "npc_routines": false
+   "npc_routines": false,
+   "terrain_flattened": true
   },
   {
    "id": "SETT_118",

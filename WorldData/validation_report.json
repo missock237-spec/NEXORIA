@@ -1,0 +1,80 @@
+{
+ "checks": [
+  {
+   "check": "heightmaps_seams",
+   "ok": false,
+   "level": "warning",
+   "detail": "discontinuités > 8 m : 50/435 (max 22.19 m)"
+  },
+  {
+   "check": "settlements_slope",
+   "ok": true,
+   "level": "warning",
+   "detail": "sites trop pentus : []"
+  },
+  {
+   "check": "settlements_flooded",
+   "ok": true,
+   "level": "error",
+   "detail": "sites inondés : []"
+  },
+  {
+   "check": "settlements_height_drift",
+   "ok": true,
+   "level": "info",
+   "detail": "0 corrigés par aplatissement + re-snap"
+  },
+  {
+   "check": "poi_ground_drift",
+   "ok": true,
+   "level": "info",
+   "detail": "0 POI re-snapés sur le terrain"
+  },
+  {
+   "check": "rivers_reach_water",
+   "ok": true,
+   "level": "warning",
+   "detail": "3 fleuves ne rejoignent pas clairement l'eau (confluences internes comptées)"
+  },
+  {
+   "check": "caves_entrances",
+   "ok": true,
+   "level": "info",
+   "detail": "0 entrée(s) reclassée(s) subaquatique(s)"
+  },
+  {
+   "check": "dungeons_graph",
+   "ok": true,
+   "level": "error",
+   "detail": "salles isolées : []"
+  },
+  {
+   "check": "routes_length",
+   "ok": true,
+   "level": "warning",
+   "detail": "routes très longues : []"
+  },
+  {
+   "check": "perf_budget_low",
+   "ok": true,
+   "level": "info",
+   "detail": "LOW : ~12 chunks actifs, ~72000 tris terrain (budget 300k)"
+  }
+ ],
+ "fixes": [],
+ "errors": 0,
+ "warnings": 1,
+ "fixed": 0,
+ "summary": {
+  "errors": 0,
+  "warnings": 1,
+  "auto_fixes": 0,
+  "regions_checked": 256,
+  "settlements": 128,
+  "poi": 170,
+  "rivers": 86,
+  "caves": 78,
+  "dungeons": 30,
+  "routes": 75
+ }
+}

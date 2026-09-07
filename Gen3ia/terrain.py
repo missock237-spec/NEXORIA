@@ -128,12 +128,27 @@ def _region_sample_grid(gx: int, gy: int):
 
 def build_region_heightmap(gx: int, gy: int, elev: np.ndarray, water2048: np.ndarray,
                            hero: bool = False) -> dict:
+    """Construit la heightmap d'une région.
+
+    Clé anti-couture : la grille est ÉTENDUE de `pad` échantillons de part et
+    d'autre avec les VRAIES données globales (base + détail + eau évaluées en
+    coordonnées monde), l'érosion tourne sur la zone étendue, puis on rogne le
+    cœur. Les bordures voient donc le même terrain que les régions voisines.
+    """
     n = REGION_MAP_RES
+    pad = 24
     rid = region_id(gx, gy)
-    px, py = _region_sample_grid(gx, gy)
+    # grille étendue en pixels carte monde (pas 0,5 px carte = 16 m monde)
+    base_px = gx * 128
+    base_py = GLOBAL_RES - (gy + 1) * 128
+    idx = np.arange(-pad, n + pad) + 0.5
+    px = base_px + idx * 0.5
+    py = base_py + idx * 0.5
     PX, PY = np.meshgrid(px, py)
-    # 1) base bilinéaire depuis la carte monde (mètres)
-    base = bilinear_sample(elev.astype(np.float64), PX.ravel(), PY.ravel()).reshape(n, n)
+    PX = np.clip(PX, 0, GLOBAL_RES - 1.001)
+    PY = np.clip(PY, 0, GLOBAL_RES - 1.001)
+    # 1) base bilinéaire depuis la carte monde (mètres) — zone étendue
+    base = bilinear_sample(elev.astype(np.float64), PX.ravel(), PY.ravel()).reshape(len(idx), len(idx))
     # 2) détail fBm en coordonnées monde (continuité inter-régions)
     wx = PX * (WORLD_SIZE / GLOBAL_RES) - WORLD_SIZE / 2
     wz = (1.0 - PY / GLOBAL_RES) * WORLD_SIZE - WORLD_SIZE / 2
@@ -143,17 +158,20 @@ def build_region_heightmap(gx: int, gy: int, elev: np.ndarray, water2048: np.nda
     detail = fbm(wx * DETAIL_K + 13.7, wz * DETAIL_K - 8.3, sub_seed("detail", rid), octaves=4)
     h = base + detail * amp
     # 3) canaux d'eau : masque ré-échantillonné depuis water_global
-    wm = bilinear_sample(water2048.astype(np.float32), PX.ravel(), PY.ravel()).reshape(n, n)
+    wm = bilinear_sample(water2048.astype(np.float32), PX.ravel(), PY.ravel()).reshape(len(idx), len(idx))
     river = wm > 0.25
     h = np.where(river & (h > -4.0), np.minimum(h, -2.5 - wm * 3.0), h)
-    # 4) érosion thermique avec marge (aucune couture aux bordures)
-    pad = 24
-    hp = np.pad(h, pad, mode="edge")
-    hp = thermal_erosion(hp, iters=26, talus=max(0.8, float(slope.max()) * 0.15), factor=0.5)
-    h = hp[pad:-pad, pad:-pad]
+    # 4) érosion thermique sur la ZONE ÉTENDUE (marge = vraies données voisines)
+    hp = thermal_erosion(h.copy(), iters=26, talus=max(0.8, float(slope.max()) * 0.15), factor=0.5)
+    h = hp[pad:pad + n, pad:pad + n]
+    slope_c = slope[pad:pad + n, pad:pad + n]
+    river_c = river[pad:pad + n, pad:pad + n]
     if hero:
-        h = droplet_erosion(h, n_droplets=9000, max_steps=28, seed=sub_seed("droplet", rid))
-    return {"height": h.astype(np.float32), "water": river, "slope": slope.astype(np.float32)}
+        h_full = hp
+        h_full = droplet_erosion(h_full, n_droplets=12000, max_steps=30,
+                                 seed=sub_seed("droplet", rid))
+        h = h_full[pad:pad + n, pad:pad + n]
+    return {"height": h.astype(np.float32), "water": river_c, "slope": slope_c.astype(np.float32)}
 
 
 def encode_png16(h: np.ndarray) -> np.ndarray:
