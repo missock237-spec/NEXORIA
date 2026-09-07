@@ -1,0 +1,394 @@
+{
+ "supremes": [
+  {
+   "id": "SUP_01",
+   "key": "IGNAROTH",
+   "name": "IGNAROTH, Suprême des Braises Éternelles",
+   "element": "feu",
+   "difficulty": 8,
+   "lair_world": [
+    -20032.0,
+    22336.0
+   ],
+   "lair_region": "REGION_212",
+   "territory_radius_m": 2317.0,
+   "lair_dungeon": "DUNG_012",
+   "biome_override": "volcanic",
+   "corruption_color": "#c2452e",
+   "corruption": {
+    "weather": [
+     "cendres",
+     "canicule",
+     "vent de braise"
+    ],
+    "monsters": [
+     "élémentaires de feu",
+     "magma-bêtes",
+     "salamandres d'acier"
+    ],
+    "light": "lueur orangée constante, ombres rouges",
+    "music": "tambours sourds sous la lave",
+    "npc_behaviour": "fuite ou fanatisme : certains clans le vénèrent",
+    "signs": [
+     "arbres calcinés alignés vers le centre",
+     "verres fondus en larmes",
+     "thermiques d'air brûlant"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : volcanic (teinte #c2452e) à mesure qu'on approche",
+   "lore": "Né dans la première forge kharnide, IGNAROTH a bu le feu du monde. Son territoire est un avertissement : là où il marche, le sol se souvient de la lave.",
+   "seed": 2103697522
+  },
+  {
+   "id": "SUP_02",
+   "key": "KRYOS",
+   "name": "KRYOS, l'Hiver Sans Fin",
+   "element": "glace",
+   "difficulty": 7,
+   "lair_world": [
+    448.0,
+    -27968.0
+   ],
+   "lair_region": "REGION_025",
+   "territory_radius_m": 2412.0,
+   "lair_dungeon": "DUNG_023",
+   "biome_override": "ice_sheet",
+   "corruption_color": "#9fd8e8",
+   "corruption": {
+    "weather": [
+     "blizzard",
+     "silence gelé",
+     "éclipse froide"
+    ],
+    "monsters": [
+     "élémentaires de givre",
+     "loups des glaces",
+     "revenants gelés"
+    ],
+    "light": "lumière blanche sans ombre",
+    "music": "cristal fêlé, souffle polaire",
+    "npc_behaviour": "villages vides, portes murées de l'intérieur",
+    "signs": [
+     "fleurs de givre géométriques",
+     "lacs figés en miroir",
+     "cadres de portes retirés"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : ice_sheet (teinte #9fd8e8) à mesure qu'on approche",
+   "lore": "KRYOS ne hait personne. L'hiver n'est qu'une patience, et votre chaleur une erreur de calendrier.",
+   "seed": 121923696
+  },
+  {
+   "id": "SUP_03",
+   "key": "YGGVARN",
+   "name": "YGGVARN, Racine du Monde",
+   "element": "sylve",
+   "difficulty": 6,
+   "lair_world": [
+    27584.0,
+    -20416.0
+   ],
+   "lair_region": "REGION_063",
+   "territory_radius_m": 2727.0,
+   "lair_dungeon": "DUNG_022",
+   "biome_override": "jungle",
+   "corruption_color": "#2f8f4e",
+   "corruption": {
+    "weather": [
+     "brume verte",
+     "pluie de spores",
+     "calme écrasant"
+    ],
+    "monsters": [
+     "treants enragés",
+     "essaims-mémoire",
+     "gardes-racines"
+    ],
+    "light": "rayons verts, sous-bois cathédrale",
+    "music": "chœur de feuilles, bouche d'orgue végétale",
+    "npc_behaviour": "druides en transe, villageois récitants de la Graine",
+    "signs": [
+     "arbres fusionnés en arches",
+     "racines pavant les routes",
+     "fonts de sève claire"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : jungle (teinte #2f8f4e) à mesure qu'on approche",
+   "lore": "YGGVARN était la première graine plantée par les Aetheris. La forêt est son corps ; les voyageurs, son pollen.",
+   "seed": 1337181238
+  },
+  {
+   "id": "SUP_04",
+   "key": "NAKH'THUL",
+   "name": "NAKH'THUL, l'Abysse Éveillé",
+   "element": "océan",
+   "difficulty": 9,
+   "lair_world": [
+    -28480.0,
+    -28736.0
+   ],
+   "lair_region": "REGION_002",
+   "territory_radius_m": 1774.0,
+   "lair_dungeon": "DUNG_013",
+   "biome_override": "coast",
+   "corruption_color": "#1a5f7a",
+   "corruption": {
+    "weather": [
+     "tempête cyclonique",
+     "marées impossibles",
+     "pluie de sel"
+    ],
+    "monsters": [
+     "krakens mineurs",
+     "aberrations abyssales",
+     "naufrageurs"
+    ],
+    "light": "lumière noire-bleue, halo de profondeur",
+    "music": "cloche noyée, chœur marin",
+    "npc_behaviour": "ports en quarantaine, pêcheurs muets",
+    "signs": [
+     "vagues figées à contre-pente",
+     "cloches de plage sonnant seules",
+     "mouettes sans yeux"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : coast (teinte #1a5f7a) à mesure qu'on approche",
+   "lore": "Ce que la mer rend toujours, elle le rend changé. NAKH'THUL est le changement.",
+   "seed": 1240523762
+  },
+  {
+   "id": "SUP_05",
+   "key": "AREKH",
+   "name": "AREKH, le Roi des Sables",
+   "element": "désert",
+   "difficulty": 8,
+   "lair_world": [
+    13504.0,
+    6080.0
+   ],
+   "lair_region": "REGION_156",
+   "territory_radius_m": 2283.0,
+   "lair_dungeon": "DUNG_029",
+   "biome_override": "desert",
+   "corruption_color": "#d9a441",
+   "corruption": {
+    "weather": [
+     "mirages meurtriers",
+     "tempête de sable",
+     "soleil double"
+    ],
+    "monsters": [
+     "ver des sables",
+     "momies de cour",
+     "spectres de caravane"
+    ],
+    "light": "miroitement doré, horizon liquide",
+    "music": "flûte de désert, sablier immense",
+    "npc_behaviour": "oasis occupées par sa cour momifiée",
+    "signs": [
+     "sable en escaliers parfaits",
+     "os de basilic dressés en bornes",
+     "heures qui durent des jours"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : desert (teinte #d9a441) à mesure qu'on approche",
+   "lore": "AREKH a conquis la mort comme on conquiert une province. Sa cour l'attend, et le sable avance.",
+   "seed": 1912710387
+  },
+  {
+   "id": "SUP_06",
+   "key": "MORVANE",
+   "name": "MORVANE, la Reine des Ombres",
+   "element": "ombre",
+   "difficulty": 9,
+   "lair_world": [
+    -28736.0,
+    -2112.0
+   ],
+   "lair_region": "REGION_113",
+   "territory_radius_m": 1757.0,
+   "lair_dungeon": "DUNG_020",
+   "biome_override": "swamp",
+   "corruption_color": "#5a4a7a",
+   "corruption": {
+    "weather": [
+     "nuit prolongée",
+     "brume basse",
+     "silence d'oracle"
+    ],
+    "monsters": [
+     "spectres des marais",
+     "doubles voleurs",
+     "araignées de mémoire"
+    ],
+    "light": "contre-jour permanent, torches bleues",
+    "music": "berceuse inversée",
+    "npc_behaviour": "PNJ aux ombres détachées, refusent de prononcer leur nom",
+    "signs": [
+     "ombres pointant le nord",
+     "miroirs recouverts",
+     "chandelles jamais consumées"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : swamp (teinte #5a4a7a) à mesure qu'on approche",
+   "lore": "MORVANE collectionne les reflets des rois. Le vôtre lui plaît déjà.",
+   "seed": 1883593581
+  },
+  {
+   "id": "SUP_07",
+   "key": "STRYGOR",
+   "name": "STRYGOR, Tempête Vivante",
+   "element": "orage",
+   "difficulty": 7,
+   "lair_world": [
+    25408.0,
+    28096.0
+   ],
+   "lair_region": "REGION_239",
+   "territory_radius_m": 2469.0,
+   "lair_dungeon": "DUNG_001",
+   "biome_override": "alpine_rock",
+   "corruption_color": "#6f7fd8",
+   "corruption": {
+    "weather": [
+     "orages en chaîne",
+     "tourbes d'éclairs",
+     "grêle de verre"
+    ],
+    "monsters": [
+     "élémentaires de foudre",
+     "harpyies-tempête",
+     "bêtes énergisées"
+    ],
+    "light": "éclairs permanents, ombres sautantes",
+    "music": "cordes frottées, tonnerre rythmé",
+    "npc_behaviour": "villages paratonnerres, prêtres de l'arc",
+    "signs": [
+     "arbres foudroyés dressés vers le ciel",
+     "tours à cages",
+     "air qui craque sous les doigts"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : alpine_rock (teinte #6f7fd8) à mesure qu'on approche",
+   "lore": "STRYGOR n'a jamais eu de forme deux fois. La dernière avait la vôtre.",
+   "seed": 1108034950
+  },
+  {
+   "id": "SUP_08",
+   "key": "LITHARION",
+   "name": "LITHARION, le Dormeur de Pierre",
+   "element": "tectonique",
+   "difficulty": 8,
+   "lair_world": [
+    -14400.0,
+    -28480.0
+   ],
+   "lair_region": "REGION_021",
+   "territory_radius_m": 2842.0,
+   "lair_dungeon": "DUNG_006",
+   "biome_override": "badlands",
+   "corruption_color": "#8a6f52",
+   "corruption": {
+    "weather": [
+     "séismes lents",
+     "poussière suspendue",
+     "calme de tombe"
+    ],
+    "monsters": [
+     "golems de pierre",
+     "vers de faille",
+     "statues éveillées"
+    ],
+    "light": "ombres de montagnes, crépuscule minéral",
+    "music": "grognement de plaques, luth de roche",
+    "npc_behaviour": "villages bâtis sur pilotis anti-sismiques, culte du sommeil",
+    "signs": [
+     "rivières qui coulent en biais",
+     "menhirs couchés comme des dormeurs",
+     "routes qui se froncent"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : badlands (teinte #8a6f52) à mesure qu'on approche",
+   "lore": "LITHARION rêve le relief du monde. Le réveiller, c'est redessiner les cartes.",
+   "seed": 133094945
+  },
+  {
+   "id": "SUP_09",
+   "key": "VESPERA",
+   "name": "VESPERA, la Voix du Vide",
+   "element": "vide",
+   "difficulty": 10,
+   "lair_world": [
+    6720.0,
+    27072.0
+   ],
+   "lair_region": "REGION_234",
+   "territory_radius_m": 2264.0,
+   "lair_dungeon": null,
+   "biome_override": "magic_glade",
+   "corruption_color": "#b08fd8",
+   "corruption": {
+    "weather": [
+     "zones d'absence",
+     "étoiles nouvelles",
+     "météore silencieux"
+    ],
+    "monsters": [
+     "wispillons",
+     "passerelles vivantes",
+     "chose-sans-nom"
+    ],
+    "light": "aurae violettes, angles de lumière impossibles",
+    "music": "note tenue, absence de réverb",
+    "npc_behaviour": "PNJ qui répètent vos phrases, oublient leur métier",
+    "signs": [
+     "portails de l'Orden Voal qui s'ouvrent seuls",
+     "pierres qui montent",
+     "souvenirs manquants"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : magic_glade (teinte #b08fd8) à mesure qu'on approche",
+   "lore": "Les Voilés n'ont pas disparu : ils ont été prononcés. VESPERA est la voix qui les a dits.",
+   "seed": 2071594177
+  },
+  {
+   "id": "SUP_10",
+   "key": "AURATHAL",
+   "name": "AURATHAL, le Jugement Doré",
+   "element": "lumière",
+   "difficulty": 10,
+   "lair_world": [
+    7744.0,
+    -11072.0
+   ],
+   "lair_region": "REGION_090",
+   "territory_radius_m": 1808.0,
+   "lair_dungeon": null,
+   "biome_override": "mediterranean",
+   "corruption_color": "#e8c85a",
+   "corruption": {
+    "weather": [
+     "clair de juge",
+     "chaleur accusatrice",
+     "pluie de plumes"
+    ],
+    "monsters": [
+     "séraphins déchus",
+     "statues-prophètes",
+     "lions de verdict"
+    ],
+    "light": "(projecteurs célestes, aucune ombre ne vous appartient",
+    "music": "orgue triomphal, chœur accusateur",
+    "npc_behaviour": "tribunaux de village, aveux spontanés",
+    "signs": [
+     "clepsydres inversées",
+     "sentiers droits à travers les montagnes",
+     "faux soleils à midi"
+    ]
+   },
+   "visual_identity": "le paysage glisse progressivement vers : mediterranean (teinte #e8c85a) à mesure qu'on approche",
+   "lore": "AURATHAL juge depuis la chute d'Aetheris. Personne n'a encore survécu à son acquittement.",
+   "seed": 790737168
+  }
+ ]
+}

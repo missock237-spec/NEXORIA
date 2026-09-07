@@ -1,0 +1,128 @@
+{
+ "civilizations": [
+  {
+   "id": "CIV_01",
+   "name": "Empire d'Aetheris",
+   "culture": "aetheris",
+   "era": " Premier Âge (-4 200 à -1 900)",
+   "architecture": "cités de pierre blanche suspendues, arches flottantes, anneaux gravés",
+   "materials": [
+    "marbre blanc",
+    "or froid",
+    "alliage aether"
+   ],
+   "symbols": [
+    "soleil à huit rais",
+    "spirale ascendante",
+    "œil ouvert"
+   ],
+   "language": "aetherique — alphabet circulaire, lu de l'intérieur vers l'extérieur",
+   "technology": "lévitation par cristaux résonants, aqueducs anti-gravité",
+   "religion": "culte des Douze Lumières, ascension promise aux justes",
+   "artefacts": [
+    "clés-aether",
+    "cœur d'arche",
+    "miroirs de mémoire"
+   ],
+   "fall": "la Grande Ascension : les Douze devinrent les premiers Suprêmes — ou disparurent",
+   "preferred_biomes": [
+    "grassland",
+    "mediterranean",
+    "temperate_forest",
+    "alpine_meadow"
+   ]
+  },
+  {
+   "id": "CIV_02",
+   "name": "Clans de Kharn-Dhur",
+   "culture": "kharn",
+   "era": "Deuxième Âge (-3 100 à -800)",
+   "architecture": "forteresses troglodytes, machines à vapeur, runes carrées incandescentes",
+   "materials": [
+    "basalte",
+    "bronze sombre",
+    "pierre chantante"
+   ],
+   "symbols": [
+    "marteau sur enclume",
+    "carré brisé",
+    "chauve-souris de forge"
+   ],
+   "language": "kharnide — syllabaire gravé, se frappe sur la pierre pour être lu",
+   "technology": "vapeur alchimique, rails de mine auto-porteurs, golems ouvriers",
+   "religion": "le Grand Feu Forge-Tout, ancêtres-dans-la-roche",
+   "artefacts": [
+    "sceaux de forge",
+    "cœurs de golem",
+    "tables des Clans"
+   ],
+   "fall": "l'Éboulement Sans Fin — leurs cités profondes ont réveillé quelque chose",
+   "preferred_biomes": [
+    "alpine_rock",
+    "taiga",
+    "badlands",
+    "volcanic"
+   ]
+  },
+  {
+   "id": "CIV_03",
+   "name": "Confrérie du Serpent (Ssil-Vareth)",
+   "culture": "ssil",
+   "era": "Deuxième Âge (-2 700 à -400)",
+   "architecture": "pyramides à degrés noyées de jungle, pontons de jade, salles d'écho",
+   "materials": [
+    "jade",
+    "grès rouge",
+    "écailles dorées"
+   ],
+   "symbols": [
+    "serpent ondoyant",
+    "croissant noyé",
+    " spirale d'écailles"
+   ],
+   "language": "ssilvareth — glyphes sifflés, s'écrivent avec des mues de serpent",
+   "technology": "chimie de plantes, jets d'eau monumentaux, outils d'obsidienne",
+   "religion": "le Serpent-Monde endormi sous la jungle, nourri de souvenirs",
+   "artefacts": [
+    "masques de muée",
+    "cloches d'eau",
+    "cartes de sèves"
+   ],
+   "fall": "la Grande Muée : la civilisation a 'mue' et n'est jamais revenue",
+   "preferred_biomes": [
+    "jungle",
+    "swamp",
+    "savanna"
+   ]
+  },
+  {
+   "id": "CIV_04",
+   "name": "Les Voilés (Orden Voal)",
+   "culture": "voal",
+   "era": "Inconnue — antérieure à tous les calendriers",
+   "architecture": "monolithes d'obsidienne, portails silencieux, escaliers qui montent des deux côtés",
+   "materials": [
+    "obsidienne noire",
+    "verre d'ombre",
+    "os blancs"
+   ],
+   "symbols": [
+    "œil fermé",
+    "porte entrouverte",
+    "main sans paume"
+   ],
+   "language": "voalique — non vocal ; se grave dans les rêves des voyageurs",
+   "technology": "passerelles dimensionnelles, scellés du vide, horloges de silence",
+   "religion": "le Vide Bienveillant — prier pour être oublié par lui",
+   "artefacts": [
+    "clefs du seuil",
+    "lanternes d'absence",
+    "fragments de voile"
+   ],
+   "fall": "aucune chute enregistrée : ils ont simplement cessé d'avoir existé",
+   "preferred_biomes": [
+    "__all__"
+   ]
+  }
+ ]
+}

@@ -23,6 +23,22 @@
   "vegetation": {
    "done_at": "2026-09-07 01:16:10",
    "seconds": 0.3
+  },
+  "settlements": {
+   "done_at": "2026-09-07 01:19:10",
+   "seconds": 1.4
+  },
+  "mysteries": {
+   "done_at": "2026-09-07 01:24:37",
+   "seconds": 1.0
+  },
+  "supremes": {
+   "done_at": "2026-09-07 01:24:38",
+   "seconds": 0.6
+  },
+  "poi": {
+   "done_at": "2026-09-07 01:24:39",
+   "seconds": 1.0
   }
  }
 }

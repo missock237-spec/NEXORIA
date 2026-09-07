@@ -35,7 +35,7 @@
     "temp": 0.08,
     "moist": 0.84
    },
-   "recommended_level": 7,
+   "recommended_level": 9,
    "resources": [
     "perles noires",
     "coraux",
@@ -46,10 +46,13 @@
     "krakens mineurs"
    ],
    "dangers": [
-    "climat extrême"
+    "climat extrême",
+    "aura de NAKH'THUL",
+    "aura de NAKH'THUL"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.23
   },
   {
    "id": "REGION_002",
@@ -86,7 +89,7 @@
     "temp": 0.07,
     "moist": 0.78
    },
-   "recommended_level": 7,
+   "recommended_level": 9,
    "resources": [
     "perles noires",
     "coraux",
@@ -97,10 +100,13 @@
     "krakens mineurs"
    ],
    "dangers": [
-    "climat extrême"
+    "climat extrême",
+    "aura de NAKH'THUL",
+    "aura de NAKH'THUL"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.3
   },
   {
    "id": "REGION_003",
@@ -152,7 +158,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_004",
@@ -189,7 +196,7 @@
     "temp": 0.08,
     "moist": 0.77
    },
-   "recommended_level": 7,
+   "recommended_level": 9,
    "resources": [
     "perles noires",
     "coraux",
@@ -200,10 +207,13 @@
     "krakens mineurs"
    ],
    "dangers": [
-    "climat extrême"
+    "climat extrême",
+    "aura de LITHARION",
+    "aura de LITHARION"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.26
   },
   {
    "id": "REGION_005",
@@ -242,7 +252,7 @@
     "temp": 0.08,
     "moist": 0.83
    },
-   "recommended_level": 6,
+   "recommended_level": 10,
    "resources": [
     "perles noires",
     "coraux",
@@ -253,10 +263,13 @@
     "krakens mineurs"
    ],
    "dangers": [
-    "bêtes prédatrices"
+    "bêtes prédatrices",
+    "aura de LITHARION",
+    "aura de LITHARION"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.64
   },
   {
    "id": "REGION_006",
@@ -293,7 +306,7 @@
     "temp": 0.09,
     "moist": 0.78
    },
-   "recommended_level": 6,
+   "recommended_level": 8,
    "resources": [
     "perles noires",
     "coraux",
@@ -304,10 +317,13 @@
     "aberrations abyssales"
    ],
    "dangers": [
-    "avalanches"
+    "avalanches",
+    "aura de LITHARION",
+    "aura de LITHARION"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.24
   },
   {
    "id": "REGION_007",
@@ -359,7 +375,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_008",
@@ -396,7 +413,7 @@
     "temp": 0.07,
     "moist": 0.76
    },
-   "recommended_level": 7,
+   "recommended_level": 9,
    "resources": [
     "perles noires",
     "coraux",
@@ -407,10 +424,13 @@
     "aberrations abyssales"
    ],
    "dangers": [
-    "aura corrompue (à confirmer)"
+    "aura corrompue (à confirmer)",
+    "aura de KRYOS",
+    "aura de KRYOS"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.3
   },
   {
    "id": "REGION_009",
@@ -447,7 +467,7 @@
     "temp": 0.08,
     "moist": 0.78
    },
-   "recommended_level": 6,
+   "recommended_level": 10,
    "resources": [
     "perles noires",
     "coraux",
@@ -458,10 +478,13 @@
     "krakens mineurs"
    ],
    "dangers": [
-    "climat extrême"
+    "climat extrême",
+    "aura de KRYOS",
+    "aura de KRYOS"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.4
   },
   {
    "id": "REGION_010",
@@ -514,7 +537,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_011",
@@ -565,7 +589,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_012",
@@ -616,7 +641,8 @@
     "ruines instables"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_013",
@@ -669,7 +695,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_014",
@@ -721,7 +748,8 @@
     "ruines instables"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_015",
@@ -772,7 +800,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_016",
@@ -822,7 +851,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_017",
@@ -859,7 +889,7 @@
     "temp": 0.2,
     "moist": 0.83
    },
-   "recommended_level": 7,
+   "recommended_level": 9,
    "resources": [
     "perles noires",
     "coraux",
@@ -870,10 +900,13 @@
     "aberrations abyssales"
    ],
    "dangers": [
-    "climat extrême"
+    "climat extrême",
+    "aura de NAKH'THUL",
+    "aura de NAKH'THUL"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.21
   },
   {
    "id": "REGION_018",
@@ -912,7 +945,7 @@
     "temp": 0.18,
     "moist": 0.79
    },
-   "recommended_level": 3,
+   "recommended_level": 5,
    "resources": [
     "poissons",
     "perles"
@@ -922,7 +955,9 @@
     "sirènes hostiles"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de NAKH'THUL",
+    "aura de NAKH'THUL"
    ],
    "connections": [
     {
@@ -941,7 +976,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.28
   },
   {
    "id": "REGION_019",
@@ -1020,7 +1056,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_020",
@@ -1059,7 +1096,7 @@
     "temp": 0.19,
     "moist": 0.6
    },
-   "recommended_level": 4,
+   "recommended_level": 6,
    "resources": [
     "poissons",
     "perles"
@@ -1069,7 +1106,9 @@
     "sirènes hostiles"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de LITHARION",
+    "aura de LITHARION"
    ],
    "connections": [
     {
@@ -1098,7 +1137,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.29
   },
   {
    "id": "REGION_021",
@@ -1137,7 +1177,7 @@
     "temp": 0.19,
     "moist": 0.71
    },
-   "recommended_level": 4,
+   "recommended_level": 10,
    "resources": [
     "poissons",
     "perles"
@@ -1147,7 +1187,9 @@
     "requins prédateurs"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de LITHARION",
+    "aura de LITHARION"
    ],
    "connections": [
     {
@@ -1176,7 +1218,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.7
   },
   {
    "id": "REGION_022",
@@ -1215,7 +1258,7 @@
     "temp": 0.19,
     "moist": 0.78
    },
-   "recommended_level": 4,
+   "recommended_level": 6,
    "resources": [
     "poissons",
     "perles"
@@ -1225,7 +1268,9 @@
     "sirènes hostiles"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de LITHARION",
+    "aura de LITHARION"
    ],
    "connections": [
     {
@@ -1254,7 +1299,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.27
   },
   {
    "id": "REGION_023",
@@ -1327,7 +1373,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_024",
@@ -1364,7 +1411,7 @@
     "temp": 0.19,
     "moist": 0.65
    },
-   "recommended_level": 3,
+   "recommended_level": 7,
    "resources": [
     "poissons",
     "perles"
@@ -1374,10 +1421,13 @@
     "requins prédateurs"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de KRYOS",
+    "aura de KRYOS"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.47
   },
   {
    "id": "REGION_025",
@@ -1414,7 +1464,7 @@
     "temp": 0.2,
     "moist": 0.79
    },
-   "recommended_level": 3,
+   "recommended_level": 7,
    "resources": [
     "poissons",
     "perles"
@@ -1424,10 +1474,13 @@
     "requins prédateurs"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de KRYOS",
+    "aura de KRYOS"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.61
   },
   {
    "id": "REGION_026",
@@ -1490,7 +1543,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_027",
@@ -1563,7 +1617,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_028",
@@ -1641,7 +1696,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_029",
@@ -1719,7 +1775,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_030",
@@ -1798,7 +1855,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_031",
@@ -1866,7 +1924,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_032",
@@ -1918,7 +1977,8 @@
     "avalanches"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_033",
@@ -1969,7 +2029,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_034",
@@ -2047,7 +2108,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_035",
@@ -2143,7 +2205,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_036",
@@ -2239,7 +2302,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_037",
@@ -2332,7 +2396,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.05
   },
   {
    "id": "REGION_038",
@@ -2425,7 +2490,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_039",
@@ -2513,7 +2579,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_040",
@@ -2586,7 +2653,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_041",
@@ -2636,7 +2704,8 @@
     "faune sauvage"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_042",
@@ -2688,7 +2757,8 @@
     "faune sauvage"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_043",
@@ -2772,7 +2842,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_044",
@@ -2866,7 +2937,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_045",
@@ -2959,7 +3031,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_046",
@@ -3052,7 +3125,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.09
   },
   {
    "id": "REGION_047",
@@ -3091,7 +3165,7 @@
     "temp": 0.23,
     "moist": 0.75
    },
-   "recommended_level": 6,
+   "recommended_level": 10,
    "resources": [
     "fourrures",
     "tourbe",
@@ -3102,7 +3176,9 @@
     "ours des neiges"
    ],
    "dangers": [
-    "aura corrompue (à confirmer)"
+    "aura corrompue (à confirmer)",
+    "aura de YGGVARN",
+    "aura de YGGVARN"
    ],
    "connections": [
     {
@@ -3136,7 +3212,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.61
   },
   {
    "id": "REGION_048",
@@ -3175,7 +3252,7 @@
     "temp": 0.32,
     "moist": 0.34
    },
-   "recommended_level": 6,
+   "recommended_level": 8,
    "resources": [
     "perles noires",
     "coraux",
@@ -3186,10 +3263,13 @@
     "aberrations abyssales"
    ],
    "dangers": [
-    "climat extrême"
+    "climat extrême",
+    "aura de YGGVARN",
+    "aura de YGGVARN"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.37
   },
   {
    "id": "REGION_049",
@@ -3240,7 +3320,8 @@
     "avalanches"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_050",
@@ -3318,7 +3399,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_051",
@@ -3414,7 +3496,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_052",
@@ -3510,7 +3593,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_053",
@@ -3604,7 +3688,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_054",
@@ -3699,7 +3784,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_055",
@@ -3792,7 +3878,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_056",
@@ -3872,7 +3959,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_057",
@@ -3923,7 +4011,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_058",
@@ -3974,7 +4063,8 @@
     "ruines instables"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_059",
@@ -4057,7 +4147,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_060",
@@ -4152,7 +4243,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_061",
@@ -4245,7 +4337,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_062",
@@ -4341,7 +4434,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.09
   },
   {
    "id": "REGION_063",
@@ -4379,7 +4473,7 @@
     "temp": 0.3,
     "moist": 0.68
    },
-   "recommended_level": 7,
+   "recommended_level": 10,
    "resources": [
     "pierre de taille",
     "minerais",
@@ -4392,7 +4486,9 @@
     "harpyies"
    ],
    "dangers": [
-    "ruines instables"
+    "ruines instables",
+    "aura de YGGVARN",
+    "aura de YGGVARN"
    ],
    "connections": [
     {
@@ -4426,7 +4522,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.63
   },
   {
    "id": "REGION_064",
@@ -4465,7 +4562,7 @@
     "temp": 0.42,
     "moist": 0.34
    },
-   "recommended_level": 7,
+   "recommended_level": 10,
    "resources": [
     "perles noires",
     "coraux",
@@ -4476,7 +4573,9 @@
     "krakens mineurs"
    ],
    "dangers": [
-    "avalanches"
+    "avalanches",
+    "aura de YGGVARN",
+    "aura de YGGVARN"
    ],
    "connections": [
     {
@@ -4495,7 +4594,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.38
   },
   {
    "id": "REGION_065",
@@ -4546,7 +4646,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_066",
@@ -4624,7 +4725,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_067",
@@ -4717,7 +4819,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_068",
@@ -4813,7 +4916,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_069",
@@ -4906,7 +5010,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_070",
@@ -4999,7 +5104,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_071",
@@ -5092,7 +5198,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_072",
@@ -5175,7 +5282,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_073",
@@ -5225,7 +5333,8 @@
     "faune sauvage"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_074",
@@ -5303,7 +5412,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.09
   },
   {
    "id": "REGION_075",
@@ -5394,7 +5504,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_076",
@@ -5490,7 +5601,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_077",
@@ -5583,7 +5695,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_078",
@@ -5676,7 +5789,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_079",
@@ -5762,7 +5876,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_080",
@@ -5815,7 +5930,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_081",
@@ -5868,7 +5984,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_082",
@@ -5946,7 +6063,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_083",
@@ -6039,7 +6157,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_084",
@@ -6135,7 +6254,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_085",
@@ -6231,7 +6351,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_086",
@@ -6324,7 +6445,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_087",
@@ -6417,7 +6539,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_088",
@@ -6508,7 +6631,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_089",
@@ -6596,7 +6720,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_090",
@@ -6635,7 +6760,7 @@
     "temp": 0.51,
     "moist": 0.63
    },
-   "recommended_level": 5,
+   "recommended_level": 9,
    "resources": [
     "pierre de taille",
     "minerais",
@@ -6648,7 +6773,9 @@
     "golems"
    ],
    "dangers": [
-    "ruines instables"
+    "ruines instables",
+    "aura de AURATHAL",
+    "aura de AURATHAL"
    ],
    "connections": [
     {
@@ -6687,7 +6814,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.55
   },
   {
    "id": "REGION_091",
@@ -6726,7 +6854,7 @@
     "temp": 0.58,
     "moist": 0.62
    },
-   "recommended_level": 3,
+   "recommended_level": 5,
    "resources": [
     "bois de chêne",
     "champignons",
@@ -6739,7 +6867,9 @@
     "sangliers d'ombre"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de AURATHAL",
+    "aura de AURATHAL"
    ],
    "connections": [
     {
@@ -6783,7 +6913,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.34
   },
   {
    "id": "REGION_092",
@@ -6879,7 +7010,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_093",
@@ -6975,7 +7107,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_094",
@@ -7068,7 +7201,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_095",
@@ -7146,7 +7280,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_096",
@@ -7198,7 +7333,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_097",
@@ -7249,7 +7385,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_098",
@@ -7330,7 +7467,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_099",
@@ -7426,7 +7564,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_100",
@@ -7522,7 +7661,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_101",
@@ -7618,7 +7758,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_102",
@@ -7714,7 +7855,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_103",
@@ -7810,7 +7952,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_104",
@@ -7906,7 +8049,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_105",
@@ -8002,7 +8146,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_106",
@@ -8098,7 +8243,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_107",
@@ -8194,7 +8340,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_108",
@@ -8290,7 +8437,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_109",
@@ -8386,7 +8534,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_110",
@@ -8479,7 +8628,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_111",
@@ -8557,7 +8707,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_112",
@@ -8608,7 +8759,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_113",
@@ -8645,7 +8797,7 @@
     "temp": 0.87,
     "moist": 0.81
    },
-   "recommended_level": 6,
+   "recommended_level": 10,
    "resources": [
     "perles noires",
     "coraux",
@@ -8656,10 +8808,13 @@
     "aberrations abyssales"
    ],
    "dangers": [
-    "ruines instables"
+    "ruines instables",
+    "aura de MORVANE",
+    "aura de MORVANE"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.49
   },
   {
    "id": "REGION_114",
@@ -8698,7 +8853,7 @@
     "temp": 0.86,
     "moist": 0.77
    },
-   "recommended_level": 5,
+   "recommended_level": 9,
    "resources": [
     "bois précieux",
     "plantes rares",
@@ -8711,7 +8866,9 @@
     "serpents constrictors"
    ],
    "dangers": [
-    "climat extrême"
+    "climat extrême",
+    "aura de MORVANE",
+    "aura de MORVANE"
    ],
    "connections": [
     {
@@ -8740,7 +8897,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.45
   },
   {
    "id": "REGION_115",
@@ -8836,7 +8994,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_116",
@@ -8932,7 +9091,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_117",
@@ -9028,7 +9188,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_118",
@@ -9124,7 +9285,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_119",
@@ -9220,7 +9382,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_120",
@@ -9313,7 +9476,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_121",
@@ -9409,7 +9573,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_122",
@@ -9502,7 +9667,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_123",
@@ -9595,7 +9761,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_124",
@@ -9691,7 +9858,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_125",
@@ -9787,7 +9955,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_126",
@@ -9883,7 +10052,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_127",
@@ -9969,7 +10139,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_128",
@@ -10022,7 +10193,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_129",
@@ -10075,7 +10247,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_130",
@@ -10153,7 +10326,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_131",
@@ -10249,7 +10423,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_132",
@@ -10342,7 +10517,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_133",
@@ -10438,7 +10614,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_134",
@@ -10534,7 +10711,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_135",
@@ -10629,7 +10807,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_136",
@@ -10722,7 +10901,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_137",
@@ -10818,7 +10998,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_138",
@@ -10914,7 +11095,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_139",
@@ -11007,7 +11189,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_140",
@@ -11046,7 +11229,7 @@
     "temp": 0.96,
     "moist": 0.75
    },
-   "recommended_level": 2,
+   "recommended_level": 4,
    "resources": [
     "poissons",
     "perles"
@@ -11056,7 +11239,9 @@
     "requins prédateurs"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de AREKH",
+    "aura de AREKH"
    ],
    "connections": [
     {
@@ -11100,7 +11285,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.18
   },
   {
    "id": "REGION_141",
@@ -11196,7 +11382,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_142",
@@ -11292,7 +11479,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_143",
@@ -11378,7 +11566,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_144",
@@ -11447,7 +11636,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_145",
@@ -11498,7 +11688,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_146",
@@ -11576,7 +11767,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_147",
@@ -11669,7 +11861,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_148",
@@ -11762,7 +11955,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_149",
@@ -11858,7 +12052,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_150",
@@ -11954,7 +12149,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_151",
@@ -12049,7 +12245,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_152",
@@ -12142,7 +12339,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_153",
@@ -12235,7 +12433,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_154",
@@ -12328,7 +12527,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_155",
@@ -12367,7 +12567,7 @@
     "temp": 0.9,
     "moist": 0.73
    },
-   "recommended_level": 2,
+   "recommended_level": 4,
    "resources": [
     "poissons",
     "perles"
@@ -12377,7 +12577,9 @@
     "sirènes hostiles"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de AREKH",
+    "aura de AREKH"
    ],
    "connections": [
     {
@@ -12421,7 +12623,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.35
   },
   {
    "id": "REGION_156",
@@ -12460,7 +12663,7 @@
     "temp": 0.87,
     "moist": 0.71
    },
-   "recommended_level": 4,
+   "recommended_level": 10,
    "resources": [
     "bois précieux",
     "plantes rares",
@@ -12473,7 +12676,9 @@
     "serpents constrictors"
    ],
    "dangers": [
-    "bêtes prédatrices"
+    "bêtes prédatrices",
+    "aura de AREKH",
+    "aura de AREKH"
    ],
    "connections": [
     {
@@ -12517,7 +12722,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.83
   },
   {
    "id": "REGION_157",
@@ -12613,7 +12819,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.02
   },
   {
    "id": "REGION_158",
@@ -12706,7 +12913,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_159",
@@ -12792,7 +13000,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_160",
@@ -12845,7 +13054,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_161",
@@ -12896,7 +13106,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_162",
@@ -12977,7 +13188,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_163",
@@ -13073,7 +13285,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_164",
@@ -13169,7 +13382,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_165",
@@ -13265,7 +13479,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_166",
@@ -13361,7 +13576,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_167",
@@ -13457,7 +13673,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_168",
@@ -13553,7 +13770,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_169",
@@ -13649,7 +13867,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_170",
@@ -13740,7 +13959,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_171",
@@ -13831,7 +14051,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_172",
@@ -13870,7 +14091,7 @@
     "temp": 0.78,
     "moist": 0.77
    },
-   "recommended_level": 4,
+   "recommended_level": 6,
    "resources": [
     "bois précieux",
     "plantes rares",
@@ -13883,7 +14104,9 @@
     "serpents constrictors"
    ],
    "dangers": [
-    "ruines instables"
+    "ruines instables",
+    "aura de AREKH",
+    "aura de AREKH"
    ],
    "connections": [
     {
@@ -13922,7 +14145,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.16
   },
   {
    "id": "REGION_173",
@@ -14015,7 +14239,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_174",
@@ -14108,7 +14333,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_175",
@@ -14189,7 +14415,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_176",
@@ -14240,7 +14467,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_177",
@@ -14292,7 +14520,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_178",
@@ -14373,7 +14602,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_179",
@@ -14469,7 +14699,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_180",
@@ -14565,7 +14796,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_181",
@@ -14658,7 +14890,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_182",
@@ -14754,7 +14987,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_183",
@@ -14850,7 +15084,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_184",
@@ -14946,7 +15181,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_185",
@@ -15034,7 +15270,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_186",
@@ -15112,7 +15349,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_187",
@@ -15164,7 +15402,8 @@
     "faune sauvage"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_188",
@@ -15247,7 +15486,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_189",
@@ -15340,7 +15580,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_190",
@@ -15433,7 +15674,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_191",
@@ -15514,7 +15756,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_192",
@@ -15567,7 +15810,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_193",
@@ -15620,7 +15864,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_194",
@@ -15698,7 +15943,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_195",
@@ -15791,7 +16037,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.09
   },
   {
    "id": "REGION_196",
@@ -15830,7 +16077,7 @@
     "temp": 0.51,
     "moist": 0.73
    },
-   "recommended_level": 4,
+   "recommended_level": 6,
    "resources": [
     "bois de chêne",
     "champignons",
@@ -15843,7 +16090,9 @@
     "sangliers d'ombre"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de IGNAROTH",
+    "aura de IGNAROTH"
    ],
    "connections": [
     {
@@ -15887,7 +16136,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.17
   },
   {
    "id": "REGION_197",
@@ -15980,7 +16230,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_198",
@@ -16073,7 +16324,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_199",
@@ -16169,7 +16421,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_200",
@@ -16265,7 +16518,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_201",
@@ -16353,7 +16607,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_202",
@@ -16403,7 +16658,8 @@
     "faune sauvage"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_203",
@@ -16455,7 +16711,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_204",
@@ -16533,7 +16790,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_205",
@@ -16624,7 +16882,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_206",
@@ -16720,7 +16979,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_207",
@@ -16801,7 +17061,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_208",
@@ -16853,7 +17114,8 @@
     "avalanches"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_209",
@@ -16906,7 +17168,8 @@
     "ruines instables"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_210",
@@ -16986,7 +17249,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_211",
@@ -17025,7 +17289,7 @@
     "temp": 0.44,
     "moist": 0.72
    },
-   "recommended_level": 3,
+   "recommended_level": 7,
    "resources": [
     "poissons",
     "perles"
@@ -17035,7 +17299,9 @@
     "sirènes hostiles"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de IGNAROTH",
+    "aura de IGNAROTH"
    ],
    "connections": [
     {
@@ -17079,7 +17345,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.51
   },
   {
    "id": "REGION_212",
@@ -17118,7 +17385,7 @@
     "temp": 0.38,
     "moist": 0.72
    },
-   "recommended_level": 3,
+   "recommended_level": 9,
    "resources": [
     "bois d'épicéa",
     "fourrures",
@@ -17130,7 +17397,9 @@
     "araignées géantes"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de IGNAROTH",
+    "aura de IGNAROTH"
    ],
    "connections": [
     {
@@ -17174,7 +17443,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.68
   },
   {
    "id": "REGION_213",
@@ -17270,7 +17540,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_214",
@@ -17363,7 +17634,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_215",
@@ -17459,7 +17731,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_216",
@@ -17555,7 +17828,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_217",
@@ -17643,7 +17917,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_218",
@@ -17726,7 +18001,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.08
   },
   {
    "id": "REGION_219",
@@ -17799,7 +18075,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_220",
@@ -17849,7 +18126,8 @@
     "faune sauvage"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_221",
@@ -17933,7 +18211,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_222",
@@ -18026,7 +18305,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_223",
@@ -18106,7 +18386,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_224",
@@ -18157,7 +18438,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_225",
@@ -18210,7 +18492,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_226",
@@ -18279,7 +18562,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_227",
@@ -18359,7 +18643,8 @@
      "type": "terrestre"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.03
   },
   {
    "id": "REGION_228",
@@ -18445,7 +18730,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.1
   },
   {
    "id": "REGION_229",
@@ -18531,7 +18817,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_230",
@@ -18619,7 +18906,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_231",
@@ -18705,7 +18993,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_232",
@@ -18794,7 +19083,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_233",
@@ -18880,7 +19170,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.06
   },
   {
    "id": "REGION_234",
@@ -18919,7 +19210,7 @@
     "temp": 0.3,
     "moist": 0.64
    },
-   "recommended_level": 4,
+   "recommended_level": 10,
    "resources": [
     "bois d'épicéa",
     "fourrures",
@@ -18931,7 +19222,9 @@
     "loups"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de VESPERA",
+    "aura de VESPERA"
    ],
    "connections": [
     {
@@ -18965,7 +19258,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": true
+   "npc_potential": true,
+   "supreme_exposure": 0.85
   },
   {
    "id": "REGION_235",
@@ -19004,7 +19298,7 @@
     "temp": 0.33,
     "moist": 0.52
    },
-   "recommended_level": 6,
+   "recommended_level": 8,
    "resources": [
     "perles noires",
     "coraux",
@@ -19015,7 +19309,9 @@
     "aberrations abyssales"
    ],
    "dangers": [
-    "avalanches"
+    "avalanches",
+    "aura de VESPERA",
+    "aura de VESPERA"
    ],
    "connections": [
     {
@@ -19034,7 +19330,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.29
   },
   {
    "id": "REGION_236",
@@ -19086,7 +19383,8 @@
     "faune sauvage"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_237",
@@ -19154,7 +19452,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_238",
@@ -19193,7 +19492,7 @@
     "temp": 0.35,
     "moist": 0.78
    },
-   "recommended_level": 4,
+   "recommended_level": 8,
    "resources": [
     "poissons",
     "perles"
@@ -19203,7 +19502,9 @@
     "requins prédateurs"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de STRYGOR",
+    "aura de STRYGOR"
    ],
    "connections": [
     {
@@ -19232,7 +19533,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.4
   },
   {
    "id": "REGION_239",
@@ -19271,7 +19573,7 @@
     "temp": 0.35,
     "moist": 0.74
    },
-   "recommended_level": 3,
+   "recommended_level": 9,
    "resources": [
     "poissons",
     "perles"
@@ -19281,7 +19583,9 @@
     "requins prédateurs"
    ],
    "dangers": [
-    "faune sauvage"
+    "faune sauvage",
+    "aura de STRYGOR",
+    "aura de STRYGOR"
    ],
    "connections": [
     {
@@ -19300,7 +19604,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.65
   },
   {
    "id": "REGION_240",
@@ -19352,7 +19657,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_241",
@@ -19405,7 +19711,8 @@
     "avalanches"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_242",
@@ -19458,7 +19765,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_243",
@@ -19511,7 +19819,8 @@
     "climat extrême"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_244",
@@ -19564,7 +19873,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_245",
@@ -19633,7 +19943,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_246",
@@ -19686,7 +19997,8 @@
     "bêtes prédatrices"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_247",
@@ -19755,7 +20067,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_248",
@@ -19808,7 +20121,8 @@
     "ruines instables"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_249",
@@ -19877,7 +20191,8 @@
      "type": "côtier"
     }
    ],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_250",
@@ -19915,7 +20230,7 @@
     "temp": 0.23,
     "moist": 0.76
    },
-   "recommended_level": 7,
+   "recommended_level": 9,
    "resources": [
     "perles noires",
     "coraux",
@@ -19926,10 +20241,13 @@
     "krakens mineurs"
    ],
    "dangers": [
-    "avalanches"
+    "avalanches",
+    "aura de VESPERA",
+    "aura de VESPERA"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.26
   },
   {
    "id": "REGION_251",
@@ -19980,7 +20298,8 @@
     "ruines instables"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_252",
@@ -20031,7 +20350,8 @@
     "avalanches"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_253",
@@ -20082,7 +20402,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   },
   {
    "id": "REGION_254",
@@ -20119,7 +20440,7 @@
     "temp": 0.21,
     "moist": 0.83
    },
-   "recommended_level": 7,
+   "recommended_level": 9,
    "resources": [
     "perles noires",
     "coraux",
@@ -20130,10 +20451,13 @@
     "krakens mineurs"
    ],
    "dangers": [
-    "bêtes prédatrices"
+    "bêtes prédatrices",
+    "aura de STRYGOR",
+    "aura de STRYGOR"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.28
   },
   {
    "id": "REGION_255",
@@ -20170,7 +20494,7 @@
     "temp": 0.24,
     "moist": 0.8
    },
-   "recommended_level": 7,
+   "recommended_level": 10,
    "resources": [
     "perles noires",
     "coraux",
@@ -20181,10 +20505,13 @@
     "aberrations abyssales"
    ],
    "dangers": [
-    "ruines instables"
+    "ruines instables",
+    "aura de STRYGOR",
+    "aura de STRYGOR"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.47
   },
   {
    "id": "REGION_256",
@@ -20235,7 +20562,8 @@
     "aura corrompue (à confirmer)"
    ],
    "connections": [],
-   "npc_potential": false
+   "npc_potential": false,
+   "supreme_exposure": 0.0
   }
  ]
 }
