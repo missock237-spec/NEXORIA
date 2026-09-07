@@ -8,7 +8,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
-  ChevronLeft, Zap, Moon, Droplets, Flame, Leaf, Hourglass, Eye, Cog, Ghost, HelpCircle, Swords, Crown,
+  ChevronLeft, Zap, Moon, Droplets, Flame, Leaf, Hourglass, Eye, Cog, Ghost, HelpCircle, Swords, Box,
 } from 'lucide-react'
 import { useCreatorStore } from '@/lib/store'
 import { SUPREME_LIST, type ElementId } from '@/lib/game/supremes'
@@ -34,7 +34,7 @@ interface ProgressEntry {
 }
 
 export function CodexScreen() {
-  const { activeWorld, setPhase, setActiveEncounter, setError } = useCreatorStore()
+  const { activeWorld, setPhase, setActiveEncounter, setActiveSupremeId, setError } = useCreatorStore()
   const characterId = activeWorld?.character.id
   const [progress, setProgress] = useState<Record<string, ProgressEntry>>({})
   const [busy, setBusy] = useState(false)
@@ -84,6 +84,14 @@ export function CodexScreen() {
       }
     },
     [characterId, busy, setActiveEncounter, setPhase]
+  )
+
+  const enterSanctuary = useCallback(
+    (supremeId: string) => {
+      setActiveSupremeId(supremeId as import('@/lib/game/supremes').SupremeId)
+      setPhase('supreme')
+    },
+    [setActiveSupremeId, setPhase],
   )
 
   if (!characterId) {
@@ -185,8 +193,21 @@ export function CodexScreen() {
                 </div>
 
                 {/* Action */}
-                <div className="px-3.5 pb-3.5">
-                  {s.implementable ? (
+                <div className="space-y-1.5 px-3.5 pb-3.5">
+                  {/* Sanctuaire 3D — les 10 Suprêmes, prêts à jouer */}
+                  <button
+                    onClick={() => enterSanctuary(s.id)}
+                    className="flex min-h-[42px] w-full items-center justify-center gap-2 rounded-sm border text-[10px] font-black uppercase tracking-[0.2em] transition active:scale-[0.99]"
+                    style={{
+                      borderColor: `${s.color}88`,
+                      color: s.glow,
+                      background: `linear-gradient(180deg, ${s.color}1f, ${s.color}0a)`,
+                    }}
+                  >
+                    <Box className="h-3.5 w-3.5" />
+                    Sanctuaire 3D
+                  </button>
+                  {s.implementable && (
                     <button
                       onClick={() => challenge(s.id)}
                       disabled={busy}
@@ -196,10 +217,6 @@ export function CodexScreen() {
                       <Swords className="h-3.5 w-3.5" />
                       {busy ? '…' : p?.defeated ? 'Relever le défi' : 'Défier le Roi du Ciel'}
                     </button>
-                  ) : (
-                    <div className="flex min-h-[42px] items-center justify-center gap-2 rounded-sm border border-[#2c2438] bg-[#100c1a] text-[9px] font-bold uppercase tracking-[0.24em] text-[#6a6080]">
-                      <Crown className="h-3 w-3" /> Bientôt affrontable
-                    </div>
                   )}
                 </div>
               </motion.div>
@@ -208,7 +225,7 @@ export function CodexScreen() {
         </div>
 
         <div className="mt-6 rounded-md border border-[#2c2438] bg-[#0e0b18] px-4 py-3 text-center text-[10px] uppercase tracking-[0.3em] text-[#b8985c]">
-          Abats le Roi du Ciel — les 9 autres Suprêmes émergeront des brumes de NEXORIA.
+          Les 10 Suprêmes descendent en 3D — caractéristiques ultimes, invincibilité absolue.
         </div>
       </main>
     </div>

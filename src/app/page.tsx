@@ -21,6 +21,7 @@ import { ArenaHubScreen } from '@/components/screens/ArenaHubScreen'
 import { ArenaDuelScreen } from '@/components/screens/ArenaDuelScreen'
 import { CodexScreen } from '@/components/screens/CodexScreen'
 import { BossScreen } from '@/components/screens/BossScreen'
+import { SupremeScreen } from '@/components/screens/SupremeScreen'
 import type { WorldConfig } from '@/lib/store'
 
 export default function Home() {
@@ -49,6 +50,15 @@ export default function Home() {
         }
       })
       .catch(() => {})
+
+    // Hook de test E2E — développement uniquement (jamais en production)
+    if (process.env.NODE_ENV === 'development') {
+      ;(window as unknown as { __nexoria?: object }).__nexoria = {
+        setPhase: useCreatorStore.getState().setPhase,
+        setActiveSupremeId: useCreatorStore.getState().setActiveSupremeId,
+        getState: useCreatorStore.getState,
+      }
+    }
   }, [initPlatform, setWorldConfig, setAccount, setCharacters])
 
   return (
@@ -69,6 +79,7 @@ export default function Home() {
       {phase === 'arena' && <ArenaDuelScreen />}
       {phase === 'codex' && <CodexScreen />}
       {phase === 'boss' && <BossScreen />}
+      {phase === 'supreme' && <SupremeScreen />}
     </main>
   )
 }

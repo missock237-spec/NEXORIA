@@ -2,17 +2,19 @@
 
 // NEXORIA — Store du parcours de création / d'entrée dans le monde
 // + Mise à jour « Arènes & Suprêmes » : hub, duel, codex, boss.
+// + Mise à jour « Les 10 Suprêmes en 3D » : sanctuaires jouables.
 import { create } from 'zustand'
 import type {
   Appearance, ClassId, RaceDef, ClassDef, VillageDef, NameRules, QualityProfile,
 } from '@/lib/game/types'
 import type { ArenaDef } from '@/lib/game/arenas'
+import type { SupremeId } from '@/lib/game/supremes'
 import { QUALITY_PROFILES, loadQualityProfile } from '@/lib/game/config'
 
 export type Phase =
   | 'title' | 'auth' | 'charselect' | 'name' | 'race' | 'creator'
   | 'class' | 'equipment' | 'review' | 'creating' | 'loading' | 'village'
-  | 'arenas' | 'arena' | 'codex' | 'boss'
+  | 'arenas' | 'arena' | 'codex' | 'boss' | 'supreme'
 
 // ── Arènes : adversaire désigné par le matchmaking serveur ──
 export interface MatchOpponent {
@@ -105,6 +107,9 @@ interface CreatorState {
   activeMatch: ActiveMatch | null
   activeEncounter: BossEncounter | null
 
+  // État « Les 10 Suprêmes en 3D »
+  activeSupremeId: SupremeId | null
+
   setPhase: (p: Phase) => void
   setAccount: (a: { accountId: string; email: string } | null) => void
   setCharacters: (c: CharacterSummary[]) => void
@@ -117,6 +122,7 @@ interface CreatorState {
   setActiveWorld: (w: import('@/lib/game/types').EnterWorldResponse | null) => void
   setActiveMatch: (m: ActiveMatch | null) => void
   setActiveEncounter: (e: BossEncounter | null) => void
+  setActiveSupremeId: (id: SupremeId | null) => void
   setQuality: (q: QualityProfile['id']) => void
   setError: (e: string | null) => void
   initPlatform: () => void
@@ -139,6 +145,7 @@ export const useCreatorStore = create<CreatorState>((set) => ({
   error: null,
   activeMatch: null,
   activeEncounter: null,
+  activeSupremeId: null,
 
   setPhase: (p) => set((s) => ({ phase: p, previousPhase: s.phase, error: null })),
   setAccount: (a) => set({ account: a }),
@@ -153,6 +160,7 @@ export const useCreatorStore = create<CreatorState>((set) => ({
   setActiveWorld: (w) => set({ activeWorld: w }),
   setActiveMatch: (m) => set({ activeMatch: m }),
   setActiveEncounter: (e) => set({ activeEncounter: e }),
+  setActiveSupremeId: (id) => set({ activeSupremeId: id }),
   setQuality: (q) => {
     try { window.localStorage.setItem('nexoria_quality', q) } catch { /* ignore */ }
     set({ quality: QUALITY_PROFILES[q] })

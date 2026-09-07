@@ -192,3 +192,23 @@ Stage Summary:
   combat est joué côté client puis validé en plausibilité par le serveur (durée minimale,
   résolution unique, phases ordonnées) ; les 9 autres Suprêmes sont consultables mais non
   affrontables (badge « Bientôt affrontable »)
+
+---
+Task ID: update-supremes-3d
+Agent: Super Z (main)
+Task: « Utilise cette image pour réaliser une mise à jour du jeu » — Les 10 Suprêmes doivent être créés en version 3D prêts à jouer, avec des caractéristiques supérieures à tout et une invincibilité absolue (fidèles à l'affiche officielle NEXORIA).
+
+Work Log:
+- Lu l'image uploadée (file_00000000fa6c820e8b61f7026689e8a4.png) : affiche « LES 10 SUPRÊMES » — Aetherion, Noxar, Thalyss, Ignarok, Verdania, Chronyx, Morpheus, Omega-X, Vhalor, ??? (Inconnu).
+- Analyse du jeu existant (store, CodexScreen, BossWorld, api/supremes) : seul Aetherion était implémenté comme boss ; les 9 autres « Bientôt affrontable ».
+- src/lib/game/supremes.ts : ajout de SUPREME_POWER — stats ultimes (999 999 999 en PV/Attaque/Défense/Vitesse/Puissance), invincible: true, niveau ∞, menace ∞, 3 capacités signature par Suprême (VFX typés : strike/ring/nova/rise/orbit), palette 3D par élément.
+- src/components/three/supremes/ : parts.tsx (yeux émissifs, orbes orbitales, anneaux tournants, épaulières) + ModelsA.tsx (Aetherion ailé doré, Noxar à l'éclipse violette, Thalyss à la chevelure abyssale, Ignarok colosse de lave, Verdania mère-arbre) + ModelsB.tsx (Chronyx mage du temps au sablier, Morpheus tête fracturée, Omega-X mecha, Vhalor roi spectral, ??? à l'œil d'or) + registry.ts.
+- SupremeSanctuary.tsx : arène élémentaire 3D (plateforme runique, piliers, étoiles, brume), lévitation + rotation 360°, 5 moteurs de VFX de capacités, TEST D'INVINCIBILITÉ (projectile ennemi → bouclier doré → « -0 / INVINCIBLE »).
+- SupremeScreen.tsx : écran complet — en-tête, sélecteur des 10, badges Élément/Menace ∞/INVINCIBLE, 5 stats ultimes formatées fr-FR, 3 boutons de capacités, bouton de test d'invincibilité, navigation précédent/suivant.
+- Intégration : phase 'supreme' + activeSupremeId dans le store ; page.tsx ; CodexScreen — bouton « SANCTUAIRE 3D » sur les 10 cartes (le défi Aetherion est conservé) ; hook E2E window.__nexoria en dev uniquement.
+- Vérification agent-browser : login → sélection héros → village → Codex → Sanctuaires des 10 Suprêmes (captures écran), capacité « Colère du Ciel » (foudre), « Arrêt du Temps » (ondes annulaires), test d'invincibilité (bouclier + verdict -0), responsive mobile 390×844, lint ESLint propre, aucune erreur runtime.
+
+Stage Summary:
+- Les 10 Suprêmes de l'affiche sont désormais JOUABLES EN 3D dans leur Sanctuaire : stats ultimes au-delà de toute échelle (999 999 999 ×5, niveau ∞), invincibilité absolue testable en direct (toute attaque inflige 0 dégât), 30 capacités signature déclenchables avec effets visuels.
+- Aucune régression : la création de personnage, le village, les arènes, le duel Aetherion et le Codex restent intacts.
+- Limites honnêtes : les Suprêmes restent invincibles par design (aucun n'est « vaincable » dans le Sanctuaire) ; le défi-boss Aetherion conserve son équilibrage serveur d'origine ; le rendu utilise des géométries procédurales (aucun asset externe importé).

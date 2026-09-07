@@ -1,0 +1,720 @@
+     1→'use client'
+     2→
+     3→// NEXORIA — AETHERION, Suprême #01 « Le Roi du Ciel » (mise à jour officielle)
+     4→// Forteresse céleste au-dessus des nuages. Boss mondial en 3 phases :
+     5→//   1. LE SOUVERAIN DU CIEL — éclairs ciblés
+     6→//   2. LA TEMPÊTE SE DÉCHAÎNE — ondes de choc + gravité fluctuante
+     7→//   3. FORME SPIRITUELLE — pluie de foudre continue, noyau vulnérable
+     8→// Le serveur fournit les PV du boss et valide les 3 phases dans l'ordre.
+     9→
+    10→import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+    11→import { Canvas, useFrame, useThree } from '@react-three/fiber'
+    12→import { Html, Sparkles } from '@react-three/drei'
+    13→import * as THREE from 'three'
+    14→import { AvatarModel } from './AvatarModel'
+    15→import { RACES } from '@/lib/game/races'
+    16→import type { RaceDef } from '@/lib/game/types'
+    17→import {
+    18→  playerInput, bossCombat, combatActions, requestAttack,
+    19→} from '@/lib/game/runtime'
+    20→import type { BossEncounter } from '@/lib/store'
+    21→import { useCreatorStore } from '@/lib/store'
+    22→
+    23→const PLATFORM_R = 11.5
+    24→
+    25→// Or des armures dorées (commun à Aetherion et à la forteresse)
+    26→const GOLD = '#c8a850'
+    27→
+    28→// ── RNG déterministe ──
+    29→function mulberry32(seed: number) {
+    30→  let a = seed >>> 0
+    31→  return () => {
+    32→    a |= 0
+    33→    a = (a + 0x6d2b79f5) | 0
+    34→    let t = Math.imul(a ^ (a >>> 15), 1 | a)
+    35→    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    36→    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+    37→  }
+    38→}
+    39→
+    40→// ══════════════════════════════════════════════════════════════
+    41→// AETHERION — modèle procédural (masque/couronne, ailes, anneaux,
+    42→// griffe céleste, noyau d'énergie — détails officiels de la fiche)
+    43→// ══════════════════════════════════════════════════════════════
+    44→
+    45→function Wing({ side }: { side: 1 | -1 }) {
+    46→  const g = useRef<THREE.Group>(null)
+    47→  useFrame(({ clock }) => {
+    48→    if (g.current) {
+    49→      g.current.rotation.z = side * (0.25 + Math.sin(clock.getElapsedTime() * 1.1) * 0.12)
+    50→    }
+    51→  })
+    52→  const feathers = useMemo(() => [0, 1, 2, 3, 4, 5], [])
+    53→  return (
+    54→    <group ref={g} position={[side * 0.9, 9.2, -0.3]} rotation={[0.15, side * -0.35, side * 0.25]}>
+    55→      {feathers.map((i) => {
+    56→        const len = 5.4 - i * 0.55
+    57→        const spread = side * (0.38 + i * 0.13)
+    58→        const drop = -i * 0.34
+    59→        return (
+    60→          <mesh key={i} position={[side * (len / 2 + 0.4), drop, -i * 0.12]} rotation={[0, 0, spread]}>
+    61→            <boxGeometry args={[len, 1.15 - i * 0.08, 0.06]} />
+    62→            <meshStandardMaterial
+    63→              color={i % 2 === 0 ? '#f4efe2' : '#e8e0cc'}
+    64→              emissive="#a8c8f0"
+    65→              emissiveIntensity={0.12}
+    66→              roughness={0.55}
+    67→            />
+    68→          </mesh>
+    69→        )
+    70→      })}
+    71→      {/* Arc doré (bordure d'aile) */}
+    72→      <mesh position={[side * 2.2, 0.4, -0.3]} rotation={[0, 0, side * 0.5]}>
+    73→        <torusGeometry args={[2.6, 0.09, 8, 30, Math.PI]} />
+    74→        <meshStandardMaterial color="#c8a850" metalness={0.6} roughness={0.3} emissive="#886818" emissiveIntensity={0.25} />
+    75→      </mesh>
+    76→    </group>
+    77→  )
+    78→}
+    79→
+    80→function AetherionModel({ phase, window }: { phase: number; window: boolean }) {
+    81→  const root = useRef<THREE.Group>(null)
+    82→  const rings = useRef<THREE.Group>(null)
+    83→  const rings2 = useRef<THREE.Group>(null)
+    84→  const core = useRef<THREE.Mesh>(null)
+    85→  const bodyMats = useRef<THREE.MeshStandardMaterial[]>([])
+    86→
+    87→  const spiritual = phase >= 3
+    88→
+    89→  useFrame(({ clock }, delta) => {
+    90→    const t = clock.getElapsedTime()
+    91→    // Collecte paresseuse des matériaux (une seule fois) pour la forme spirituelle
+    92→    if (root.current && bodyMats.current.length === 0) {
+    93→      root.current.traverse((o) => {
+    94→        const mesh = o as THREE.Mesh
+    95→        if (mesh.isMesh) {
+    96→          const m = mesh.material as THREE.MeshStandardMaterial
+    97→          if (m) {
+    98→            m.transparent = true
+    99→            bodyMats.current.push(m)
+   100→          }
+   101→        }
+   102→      })
+   103→    }
+   104→    if (root.current) {
+   105→      // Vol stationnaire ; descend pendant la fenêtre de tir
+   106→      const targetY = window ? 6.2 : 10.5 + Math.sin(t * 0.9) * 0.8
+   107→      root.current.position.y += (targetY - root.current.position.y) * Math.min(1, delta * 1.6)
+   108→      root.current.rotation.y = Math.sin(t * 0.4) * 0.14
+   109→    }
+   110→    if (rings.current) rings.current.rotation.y = t * 0.8
+   111→    if (rings2.current) {
+   112→      rings2.current.rotation.y = -t * 0.55
+   113→      rings2.current.rotation.x = Math.sin(t * 0.5) * 0.3
+   114→    }
+   115→    if (core.current) {
+   116→      const m = core.current.material as THREE.MeshStandardMaterial
+   117→      m.emissiveIntensity = (window ? 2.6 : 1.1) + Math.sin(t * 5) * 0.4
+   118→      const s = window ? 1.18 : 1
+   119→      core.current.scale.setScalar(core.current.scale.x + (s - core.current.scale.x) * 0.12)
+   120→    }
+   121→    // Forme spirituelle : translucide + lueur
+   122→    for (const m of bodyMats.current) {
+   123→      const targetOpacity = spiritual ? 0.42 : 1
+   124→      m.opacity += (targetOpacity - m.opacity) * 0.06
+   125→      const targetEmissive = spiritual ? 0.5 : 0.1
+   126→      m.emissiveIntensity += (targetEmissive - m.emissiveIntensity) * 0.06
+   127→    }
+   128→  })
+   129→
+   130→  const armor = '#f0ead8'
+   131→
+   132→  return (
+   133→    <group ref={root} position={[0, 10.5, -9]}>
+   134→      {/* ── Torse armuré ── */}
+   135→      <mesh position={[0, 8.6, 0]}>
+   136→        <capsuleGeometry args={[1.5, 3.4, 6, 12]} />
+   137→        <meshStandardMaterial color={armor} roughness={0.4} metalness={0.25} />
+   138→      </mesh>
+   139→      {/* Plastron doré */}
+   140→      <mesh position={[0, 8.9, 0.95]} rotation={[0.1, 0, 0]}>
+   141→        <boxGeometry args={[2.1, 2.6, 0.5]} />
+   142→        <meshStandardMaterial color={GOLD} metalness={0.7} roughness={0.25} />
+   143→      </mesh>
+   144→      {/* ── Noyau d'énergie (point faible officiel) ── */}
+   145→      <mesh ref={core} position={[0, 8.8, 1.35]}>
+   146→        <sphereGeometry args={[0.62, 16, 16]} />
+   147→        <meshStandardMaterial color="#bfe8ff" emissive="#58c8f0" emissiveIntensity={1.4} roughness={0.1} />
+   148→      </mesh>
+   149→
+   150→      {/* ── Tête + masque/couronne ── */}
+   151→      <group position={[0, 11.4, 0]}>
+   152→        <mesh>
+   153→          <sphereGeometry args={[0.85, 14, 12]} />
+   154→          <meshStandardMaterial color={armor} roughness={0.35} metalness={0.3} />
+   155→        </mesh>
+   156→        {/* Masque */}
+   157→        <mesh position={[0, -0.05, 0.62]} scale={[1, 1.25, 0.5]}>
+   158→          <sphereGeometry args={[0.62, 12, 10]} />
+   159→          <meshStandardMaterial color={GOLD} metalness={0.75} roughness={0.2} />
+   160→        </mesh>
+   161→        {/* Yeux lumineux (foudre) */}
+   162→        {[-0.24, 0.24].map((x) => (
+   163→          <mesh key={x} position={[x, 0.06, 0.85]}>
+   164→            <sphereGeometry args={[0.11, 8, 8]} />
+   165→            <meshStandardMaterial color="#d8f4ff" emissive="#58c8f0" emissiveIntensity={3} />
+   166→          </mesh>
+   167→        ))}
+   168→        {/* Couronne : 5 pointes */}
+   169→        {[-0.52, -0.26, 0, 0.26, 0.52].map((x, i) => (
+   170→          <mesh key={i} position={[x, 0.85 - Math.abs(x) * 0.35, 0]} rotation={[0, 0, -x * 0.5]}>
+   171→            <coneGeometry args={[0.11, 0.9 - Math.abs(x) * 0.7, 5]} />
+   172→            <meshStandardMaterial color={GOLD} metalness={0.8} roughness={0.2} emissive="#785818" emissiveIntensity={0.3} />
+   173→          </mesh>
+   174→        ))}
+   175→      </group>
+   176→
+   177→      {/* ── Bras + griffe céleste (lame) ── */}
+   178→      <group position={[-1.8, 9.3, 0]} rotation={[0, 0, 0.35]}>
+   179→        <mesh position={[0, -1.4, 0]}>
+   180→          <capsuleGeometry args={[0.42, 2.2, 5, 10]} />
+   181→          <meshStandardMaterial color={armor} roughness={0.4} metalness={0.25} />
+   182→        </mesh>
+   183→      </group>
+   184→      <group position={[1.8, 9.3, 0]} rotation={[0, 0, -0.35]}>
+   185→        <mesh position={[0, -1.4, 0]}>
+   186→          <capsuleGeometry args={[0.42, 2.2, 5, 10]} />
+   187→          <meshStandardMaterial color={armor} roughness={0.4} metalness={0.25} />
+   188→        </mesh>
+   189→        {/* Lame d'éclair (griffe céleste de l'affiche) */}
+   190→        <mesh position={[0.25, -4.3, 0.2]} rotation={[0.25, 0, -0.1]}>
+   191→          <boxGeometry args={[0.34, 4.6, 0.1]} />
+   192→          <meshStandardMaterial color="#d8ecff" emissive="#58a8f0" emissiveIntensity={1.5} transparent opacity={0.95} />
+   193→        </mesh>
+   194→      </group>
+   195→
+   196→      {/* ── Bas du corps effilé (esprit céleste) ── */}
+   197→      <mesh position={[0, 5.4, 0]}>
+   198→        <coneGeometry args={[1.45, 5.2, 10]} />
+   199→        <meshStandardMaterial color={armor} roughness={0.5} metalness={0.2} />
+   200→      </mesh>
+   201→      <mesh position={[0, 2.6, 0]}>
+   202→        <coneGeometry args={[0.75, 2.4, 9]} />
+   203→        <meshStandardMaterial color="#e0d8c4" emissive="#88b8e8" emissiveIntensity={0.25} transparent opacity={0.85} />
+   204→      </mesh>
+   205→
+   206→      {/* ── Ailes (plumes des ailes, détail officiel) ── */}
+   207→      <Wing side={1} />
+   208→      <Wing side={-1} />
+   209→
+   210→      {/* ── Anneaux flottants (détail officiel) ── */}
+   211→      <group ref={rings} position={[0, 8.6, 0]}>
+   212→        <mesh rotation={[Math.PI / 2.4, 0, 0]}>
+   213→          <torusGeometry args={[3.6, 0.1, 8, 48]} />
+   214→          <meshStandardMaterial color="#a8d8ff" emissive="#58a8f0" emissiveIntensity={1.2} transparent opacity={0.85} />
+   215→        </mesh>
+   216→      </group>
+   217→      <group ref={rings2} position={[0, 9.4, 0]}>
+   218→        <mesh rotation={[Math.PI / 1.8, 0.4, 0]}>
+   219→          <torusGeometry args={[4.6, 0.07, 8, 48]} />
+   220→          <meshStandardMaterial color="#c8e8ff" emissive="#78b8f0" emissiveIntensity={0.9} transparent opacity={0.6} />
+   221→        </mesh>
+   222→      </group>
+   223→    </group>
+   224→  )
+   225→}
+   226→
+   227→// ── Forteresse céleste : plateforme + nuages + îles ──
+   228→function Fortress() {
+   229→  const quality = useCreatorStore((s) => s.quality)
+   230→  const clouds = useMemo(() => {
+   231→    const rand = mulberry32(9101)
+   232→    return [...Array(10)].map(() => {
+   233→      const a = rand() * Math.PI * 2
+   234→      const r = 24 + rand() * 30
+   235→      return { x: Math.cos(a) * r, y: -3 + rand() * 8, z: Math.sin(a) * r, s: 2.4 + rand() * 2.6 }
+   236→    })
+   237→  }, [])
+   238→  return (
+   239→    <group>
+   240→      {/* Plateforme de marbre et d'or */}
+   241→      <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+   242→        <circleGeometry args={[PLATFORM_R, 56]} />
+   243→        <meshStandardMaterial color="#e8e2d4" roughness={0.5} metalness={0.08} />
+   244→      </mesh>
+   245→      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, 0]}>
+   246→        <ringGeometry args={[PLATFORM_R - 1.1, PLATFORM_R - 0.55, 56]} />
+   247→        <meshStandardMaterial color="#c8a850" metalness={0.75} roughness={0.25} emissive="#78581c" emissiveIntensity={0.22} />
+   248→      </mesh>
+   249→      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, 0]}>
+   250→        <ringGeometry args={[4.2, 4.65, 48]} />
+   251→        <meshStandardMaterial color="#c8a850" metalness={0.75} roughness={0.25} />
+   252→      </mesh>
+   253→      {/* runes concentriques */}
+   254→      {[0, 1, 2, 3, 4, 5].map((i) => {
+   255→        const a = (i / 6) * Math.PI * 2
+   256→        return (
+   257→          <mesh key={i} rotation={[-Math.PI / 2, 0, 0]} position={[Math.cos(a) * 7.6, 0.03, Math.sin(a) * 7.6]}>
+   258→            <circleGeometry args={[0.34, 12]} />
+   259→            <meshStandardMaterial color="#78b8e8" emissive="#58a8f0" emissiveIntensity={0.7} />
+   260→          </mesh>
+   261→        )
+   262→      })}
+   263→      {/* Dessous de l'île */}
+   264→      <mesh position={[0, -4.2, 0]}>
+   265→        <coneGeometry args={[PLATFORM_R, 8.6, 56]} />
+   266→        <meshStandardMaterial color="#9a8f7c" flatShading roughness={1} />
+   267→      </mesh>
+   268→      {/* Piliers cérémonieux */}
+   269→      {[0, 1, 2, 3, 4, 5].map((i) => {
+   270→        const a = (i / 6) * Math.PI * 2 + 0.26
+   271→        const x = Math.cos(a) * (PLATFORM_R - 1.9)
+   272→        const z = Math.sin(a) * (PLATFORM_R - 1.9)
+   273→        return (
+   274→          <group key={`p${i}`} position={[x, 0, z]}>
+   275→            <mesh position={[0, 1.5, 0]} castShadow>
+   276→              <cylinderGeometry args={[0.28, 0.36, 3, 9]} />
+   277→              <meshStandardMaterial color="#efe9da" roughness={0.5} />
+   278→            </mesh>
+   279→            <mesh position={[0, 3.2, 0]}>
+   280→              <sphereGeometry args={[0.22, 10, 8]} />
+   281→              <meshStandardMaterial color={GOLD} metalness={0.8} roughness={0.2} emissive="#886818" emissiveIntensity={0.5} />
+   282→            </mesh>
+   283→          </group>
+   284→        )
+   285→      })}
+   286→      {/* Nuages autour */}
+   287→      {clouds.map((c, i) => (
+   288→        <group key={i} position={[c.x, c.y, c.z]} scale={c.s}>
+   289→          {[0, 1, 2].map((j) => (
+   290→            <mesh key={j} position={[j * 2.1 - 2.1, j * 0.4, j]}>
+   291→              <sphereGeometry args={[1.6 + (j % 2) * 0.6, 10, 8]} />
+   292→              <meshBasicMaterial color="#ffffff" transparent opacity={0.88} fog={false} />
+   293→            </mesh>
+   294→          ))}
+   295→        </group>
+   296→      ))}
+   297→      {quality.particles > 0 && (
+   298→        <Sparkles count={quality.particles} scale={[50, 22, 50]} size={2.6} speed={0.5} color="#cfe8ff" position={[0, 8, 0]} />
+   299→      )}
+   300→    </group>
+   301→  )
+   302→}
+   303→
+   304→// ══════════════════════════════════════════════════════════════
+   305→// LOGIQUE DU COMBAT DE BOSS
+   306→// ══════════════════════════════════════════════════════════════
+   307→
+   308→interface Strike {
+   309→  id: number
+   310→  x: number
+   311→  z: number
+   312→  t: number // heure du combat où la foudre tombe
+   313→  r: number
+   314→}
+   315→
+   316→function BossFight({ encounter, onEnd }: { encounter: BossEncounter; onEnd: (r: 'victory' | 'defeat') => void }) {
+   317→  const activeWorld = useCreatorStore((s) => s.activeWorld)
+   318→  const playerRace = (
+   319→    useCreatorStore((s) => s.worldConfig)?.races.find((r) => r.id === activeWorld?.character.race) ?? null
+   320→  ) as RaceDef | null
+   321→  const playerApp = activeWorld?.character.appearance ?? null
+   322→  const playerEq = useMemo(() => {
+   323→    const cfg = useCreatorStore.getState().worldConfig
+   324→    const m: Record<string, import('@/lib/game/types').EquipmentDef> = {}
+   325→    if (activeWorld && cfg) {
+   326→      for (const [, id] of Object.entries(activeWorld.character.equipment)) {
+   327→        const item = cfg.equipment.find((e) => e.id === id)
+   328→        if (item) m[item.slot] = item as import('@/lib/game/types').EquipmentDef
+   329→      }
+   330→    }
+   331→    return m
+   332→  }, [activeWorld])
+   333→
+   334→  const stats = useRef({
+   335→    maxHp: activeWorld?.character.stats.maxHp ?? 100,
+   336→    atk: activeWorld?.character.stats.attaquePhysique ?? 10,
+   337→  })
+   338→
+   339→  const playerG = useRef<THREE.Group>(null)
+   340→  const cam = useRef({ yaw: 0, pitch: 0.52, dist: 8.6 })
+   341→  const pos = useRef(new THREE.Vector3(0, 0, 7))
+   342→  const moveRef = useRef(0)
+   343→  const { camera, gl } = useThree()
+   344→  const rand = useRef(mulberry32(encounter.seed))
+   345→
+   346→  const strikes = useRef<Strike[]>([])
+   347→  const shockwaves = useRef<{ r: number; speed: number; hit: boolean }[]>([])
+   348→  const [strikesView, setStrikesView] = useState<Strike[]>([])
+   349→  const waveRefs = useRef<(THREE.Mesh | null)[]>([])
+   350→  const [, force] = useState(0)
+   351→
+   352→  useEffect(() => {
+   353→    bossCombat.bossHp = encounter.bossHp
+   354→    bossCombat.bossMaxHp = encounter.bossHp
+   355→    bossCombat.playerHp = stats.current.maxHp
+   356→    bossCombat.playerMaxHp = stats.current.maxHp
+   357→    bossCombat.running = true
+   358→    bossCombat.over = false
+   359→    bossCombat.result = null
+   360→    bossCombat.phase = 1
+   361→    bossCombat.phaseStart = 0
+   362→    bossCombat.phaseTimes = []
+   363→    bossCombat.window = false
+   364→    bossCombat.telegraph = null
+   365→    bossCombat.shockwave = 0
+   366→    return () => {
+   367→      bossCombat.running = false
+   368→    }
+   369→  }, [encounter])
+   370→
+   371→  useEffect(() => {
+   372→    const el = gl.domElement
+   373→    let dragging = false
+   374→    let lx = 0
+   375→    let ly = 0
+   376→    const down = (e: PointerEvent) => {
+   377→      dragging = true
+   378→      lx = e.clientX
+   379→      ly = e.clientY
+   380→    }
+   381→    const move = (e: PointerEvent) => {
+   382→      if (!dragging) return
+   383→      cam.current.yaw -= (e.clientX - lx) * 0.0052
+   384→      cam.current.pitch = Math.max(0.06, Math.min(1.1, cam.current.pitch + (e.clientY - ly) * 0.0036))
+   385→      lx = e.clientX
+   386→      ly = e.clientY
+   387→    }
+   388→    const up = () => (dragging = false)
+   389→    const click = (e: MouseEvent) => {
+   390→      if (Math.abs(e.clientX - lx) < 4 && Math.abs(e.clientY - ly) < 4) requestAttack()
+   391→    }
+   392→    el.addEventListener('pointerdown', down)
+   393→    window.addEventListener('pointermove', move)
+   394→    window.addEventListener('pointerup', up)
+   395→    el.addEventListener('click', click)
+   396→    return () => {
+   397→      el.removeEventListener('pointerdown', down)
+   398→      window.removeEventListener('pointermove', move)
+   399→      window.removeEventListener('pointerup', up)
+   400→      el.removeEventListener('click', click)
+   401→    }
+   402→  }, [gl])
+   403→
+   404→  const hurtPlayer = useCallback((pct: number) => {
+   405→    const d = Math.max(4, Math.round(stats.current.maxHp * pct))
+   406→    bossCombat.playerHp = Math.max(0, bossCombat.playerHp - d)
+   407→    bossCombat.hitFlash = Date.now()
+   408→    if (bossCombat.playerHp <= 0 && !bossCombat.over) {
+   409→      bossCombat.over = true
+   410→      bossCombat.result = 'defeat'
+   411→      onEnd('defeat')
+   412→    }
+   413→  }, [onEnd])
+   414→
+   415→  const hitBoss = useCallback(() => {
+   416→    // Dégâts plafonnés : chaque fenêtre ne peut pas trancher une phase entière
+   417→    const cap = bossCombat.bossMaxHp * 0.16
+   418→    const d = Math.round(Math.min(cap, Math.max(8, stats.current.atk * 1.5)) * (0.9 + rand.current() * 0.2))
+   419→    bossCombat.bossHp = Math.max(0, bossCombat.bossHp - d)
+   420→    bossCombat.bossHitFlash = Date.now()
+   421→    if (bossCombat.bossHp <= 0 && !bossCombat.over) {
+   422→      bossCombat.over = true
+   423→      bossCombat.result = 'victory'
+   424→      bossCombat.window = false
+   425→      onEnd('victory')
+   426→    }
+   427→  }, [onEnd])
+   428→
+   429→  const timers = useRef({ strike: 3.4, wave: 8, window: 2.2, windowDur: 0, force: 0 })
+   430→
+   431→  useFrame((_, rawDelta) => {
+   432→    const dt = Math.min(rawDelta, 0.05)
+   433→    if (!bossCombat.running || bossCombat.over) {
+   434→      if (playerG.current) {
+   435→        camera.position.lerp(new THREE.Vector3(pos.current.x, 4.5, pos.current.z + 11), 0.03)
+   436→        camera.lookAt(0, 8, -6)
+   437→      }
+   438→      return
+   439→    }
+   440→    bossCombat.elapsed += dt
+   441→    const T = timers.current
+   442→
+   443→    // ── Joueur ──
+   444→    const mag = Math.hypot(playerInput.x, playerInput.z)
+   445→    const yaw = cam.current.yaw
+   446→    const speed = playerInput.sprint ? 8.6 : 5.8
+   447→    if (mag > 0.08) {
+   448→      const fx = Math.sin(yaw)
+   449→      const fz = Math.cos(yaw)
+   450→      const ax = -fz * playerInput.x + fx * -playerInput.z
+   451→      const az = fx * playerInput.x + fz * -playerInput.z
+   452→      const l = Math.hypot(ax, az) || 1
+   453→      pos.current.x += (ax / l) * speed * dt
+   454→      pos.current.z += (az / l) * speed * dt
+   455→      moveRef.current = Math.min(1, moveRef.current + dt * 6)
+   456→    } else {
+   457→      moveRef.current = Math.max(0, moveRef.current - dt * 8)
+   458→    }
+   459→    // Gravité fluctuante (phase 2+) : aspiration vers le centre
+   460→    if (bossCombat.phase >= 2) {
+   461→      bossCombat.gravityPull = 0.22
+   462→      const d = Math.hypot(pos.current.x, pos.current.z)
+   463→      if (d > 2.4) {
+   464→        pos.current.x -= (pos.current.x / d) * 2.1 * dt
+   465→        pos.current.z -= (pos.current.z / d) * 2.1 * dt
+   466→      }
+   467→    } else {
+   468→      bossCombat.gravityPull = 0
+   469→    }
+   470→    const r = Math.hypot(pos.current.x, pos.current.z)
+   471→    if (r > PLATFORM_R - 0.9) {
+   472→      pos.current.x = (pos.current.x / r) * (PLATFORM_R - 0.9)
+   473→      pos.current.z = (pos.current.z / r) * (PLATFORM_R - 0.9)
+   474→    }
+   475→
+   476→    // ── Fenêtres de vulnérabilité (le noyau s'expose) ──
+   477→    T.window -= dt
+   478→    if (T.window <= 0) {
+   479→      bossCombat.window = true
+   480→      T.windowDur = bossCombat.phase >= 3 ? 2.2 : 2.6
+   481→      T.window = (bossCombat.phase >= 3 ? 4.4 : 5.4) + T.windowDur
+   482→      setTimeout(() => (bossCombat.window = false), T.windowDur * 1000)
+   483→    }
+   484→
+   485→    // ── Attaques du boss ──
+   486→    const phase = bossCombat.phase
+   487→    // Phase 1+ : éclairs ciblés
+   488→    T.strike -= dt
+   489→    if (T.strike <= 0) {
+   490→      const interval = phase >= 3 ? 2.3 : phase >= 2 ? 3 : 3.8
+   491→      T.strike = interval
+   492→      const count = phase >= 3 ? 2 : 1
+   493→      for (let i = 0; i < count; i++) {
+   494→        const lead = 0.55
+   495→        const x = THREE.MathUtils.clamp(
+   496→          pos.current.x + playerInput.x * speed * lead * 0.5 + (rand.current() - 0.5) * 2.4,
+   497→          -PLATFORM_R + 1.5, PLATFORM_R - 1.5
+   498→        )
+   499→        const z = THREE.MathUtils.clamp(
+   500→          pos.current.z + playerInput.z * speed * lead * 0.5 + (rand.current() - 0.5) * 2.4,
+   501→          -PLATFORM_R + 1.5, PLATFORM_R - 1.5
+   502→        )
+   503→        const warn = 1.25
+   504→        strikes.current.push({ id: Date.now() + i, x, z, t: bossCombat.elapsed + warn, r: 1.6 })
+   505→      }
+   506→      setStrikesView([...strikes.current])
+   507→    }
+   508→    strikes.current = strikes.current.filter((s) => {
+   509→      if (bossCombat.elapsed >= s.t) {
+   510→        // Impact
+   511→        if (Math.hypot(pos.current.x - s.x, pos.current.z - s.z) < s.r) hurtPlayer(0.13)
+   512→        setStrikesView([...strikes.current.filter((x) => x.id !== s.id)])
+   513→        return false
+   514→      }
+   515→      return true
+   516→    })
+   517→
+   518→    // Phase 2+ : ondes de choc annulaires
+   519→    if (phase >= 2) {
+   520→      T.wave -= dt
+   521→      if (T.wave <= 0) {
+   522→        T.wave = 7.5
+   523→        shockwaves.current.push({ r: 2.2, speed: 7.5, hit: false })
+   524→      }
+   525→    }
+   526→    shockwaves.current = shockwaves.current.filter((w) => {
+   527→      w.r += w.speed * dt
+   528→      if (!w.hit) {
+   529→        const d = Math.hypot(pos.current.x, pos.current.z)
+   530→        if (Math.abs(d - w.r) < 0.85) {
+   531→          w.hit = true
+   532→          hurtPlayer(0.1)
+   533→        }
+   534→      }
+   535→      return w.r <= PLATFORM_R + 4
+   536→    })
+   537→    // Rendu des ondes via refs (aucun re-render par frame)
+   538→    for (let i = 0; i < 3; i++) {
+   539→      const mesh = waveRefs.current[i]
+   540→      if (!mesh) continue
+   541→      const w = shockwaves.current[i]
+   542→      if (w) {
+   543→        mesh.visible = true
+   544→        const s = w.r
+   545→        mesh.scale.set(s, s, 1)
+   546→      } else {
+   547→        mesh.visible = false
+   548→      }
+   549→    }
+   550→    bossCombat.shockwave = shockwaves.current[0]?.r ?? 0
+   551→
+   552→    // ── Attaque du joueur (fenêtre uniquement) ──
+   553→    if (combatActions.playerAttack > 0) {
+   554→      const hits = combatActions.playerAttack
+   555→      combatActions.playerAttack = 0
+   556→      if (bossCombat.window) {
+   557→        for (let i = 0; i < hits; i++) hitBoss()
+   558→      }
+   559→    }
+   560→
+   561→    // ── Transitions de phase (seuils officiels 66 % / 33 %) ──
+   562→    const hpPct = bossCombat.bossHp / bossCombat.bossMaxHp
+   563→    const phaseDur = bossCombat.elapsed - bossCombat.phaseStart
+   564→    if (phase === 1 && (hpPct <= 0.66 || bossCombat.bossHp <= 0) && phaseDur >= 8.2) {
+   565→      bossCombat.phase = 2
+   566→      bossCombat.phaseTimes.push(phaseDur)
+   567→      bossCombat.phaseStart = bossCombat.elapsed
+   568→      bossCombat.playerHp = Math.min(bossCombat.playerMaxHp, bossCombat.playerHp + bossCombat.playerMaxHp * 0.3)
+   569→    } else if (phase === 2 && (hpPct <= 0.33 || bossCombat.bossHp <= 0) && phaseDur >= 8.2) {
+   570→      bossCombat.phase = 3
+   571→      bossCombat.phaseTimes.push(phaseDur)
+   572→      bossCombat.phaseStart = bossCombat.elapsed
+   573→      bossCombat.playerHp = Math.min(bossCombat.playerMaxHp, bossCombat.playerHp + bossCombat.playerMaxHp * 0.3)
+   574→    }
+   575→
+   576→    // ── Transforms ──
+   577→    if (playerG.current) {
+   578→      playerG.current.position.copy(pos.current)
+   579→      playerG.current.rotation.y = Math.atan2(-pos.current.x, -6 - pos.current.z)
+   580→    }
+   581→    // Caméra : cadre le joueur ET le boss (regard vers le haut de la forteresse)
+   582→    const cd = cam.current.dist
+   583→    const cx = pos.current.x - Math.sin(cam.current.yaw) * cd * Math.cos(cam.current.pitch)
+   584→    const cz = pos.current.z - Math.cos(cam.current.yaw) * cd * Math.cos(cam.current.pitch)
+   585→    const cy = 1.6 + Math.sin(cam.current.pitch) * cd
+   586→    camera.position.lerp(new THREE.Vector3(cx, cy, cz), 0.2)
+   587→    camera.lookAt(pos.current.x * 0.3, 5.2, -5.5)
+   588→
+   589→    // Synchronisation HUD (10 Hz via state externe)
+   590→    T.force -= dt
+   591→    if (T.force <= 0) {
+   592→      T.force = 0.1
+   593→      force((n) => n + 1)
+   594→    }
+   595→  })
+   596→
+   597→  const windowNow = bossCombat.window
+   598→
+   599→  return (
+   600→    <group>
+   601→      <Fortress />
+   602→      <AetherionModel phase={bossCombat.phase} window={windowNow} />
+   603→
+   604→      {/* Étiquette du boss */}
+   605→      <Html center distanceFactor={30} position={[0, 17.5, -9]} zIndexRange={[20, 0]}>
+   606→        <div className="whitespace-nowrap rounded-sm px-3 py-1 text-center text-[15px] font-black tracking-[0.2em] text-[#d8f0ff]"
+   607→          style={{ background: '#0c0a14cc', border: '1px solid #58a8f088', textShadow: '0 0 8px #58c8f0' }}>
+   608→          AETHERION — LE ROI DU CIEL
+   609→          <div className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[#88c8f0]">Suprême · Boss Mondial</div>
+   610→        </div>
+   611→      </Html>
+   612→
+   613→      {/* Joueur */}
+   614→      <group ref={playerG} position={[0, 0, 7]}>
+   615→        {playerRace && playerApp && (
+   616→          <AvatarModel race={playerRace} appearance={playerApp} equipment={playerEq} animated moveRef={moveRef} />
+   617→        )}
+   618→        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.06, 0]}>
+   619→          <ringGeometry args={[0.55, 0.72, 24]} />
+   620→          <meshBasicMaterial color="#58c878" transparent opacity={0.8} />
+   621→        </mesh>
+   622→      </group>
+   623→
+   624→      {/* Télégraphes d'éclairs */}
+   625→      {strikesView.map((s) => {
+   626→        const remaining = s.t - bossCombat.elapsed
+   627→        const imminent = remaining < 0.35
+   628→        return (
+   629→          <group key={s.id}>
+   630→            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[s.x, 0.08, s.z]}>
+   631→              <ringGeometry args={[s.r - 0.5, s.r, 26]} />
+   632→              <meshBasicMaterial color={imminent ? '#ffffff' : '#58a8f0'} transparent opacity={imminent ? 0.95 : 0.7} />
+   633→            </mesh>
+   634→            {imminent && (
+   635→              <mesh position={[s.x, 6, s.z]}>
+   636→                <cylinderGeometry args={[0.32, 0.55, 12, 8, 1, true]} />
+   637→                <meshBasicMaterial color="#bfe4ff" transparent opacity={0.85} side={THREE.DoubleSide} />
+   638→              </mesh>
+   639→            )}
+   640→          </group>
+   641→        )
+   642→      })}
+   643→
+   644→      {/* Ondes de choc (phase 2) — pool de 3 meshes pilotés par refs */}
+   645→      {[0, 1, 2].map((i) => (
+   646→        <mesh
+   647→          key={`wave${i}`}
+   648→          ref={(el) => {
+   649→            waveRefs.current[i] = el
+   650→          }}
+   651→          rotation={[-Math.PI / 2, 0, 0]}
+   652→          position={[0, 0.14, 0]}
+   653→          visible={false}
+   654→        >
+   655→          <ringGeometry args={[0.9, 1, 48]} />
+   656→          <meshBasicMaterial color="#88b8f0" transparent opacity={0.55} />
+   657→        </mesh>
+   658→      ))}
+   659→    </group>
+   660→  )
+   661→}
+   662→
+   663→function BossScene({ encounter, onEnd }: { encounter: BossEncounter; onEnd: (r: 'victory' | 'defeat') => void }) {
+   664→  const phase = bossCombat.phase
+   665→  const spiritual = phase >= 3
+   666→  return (
+   667→    <>
+   668→      <color attach="background" args={[spiritual ? '#1c2440' : '#5c94d8']} />
+   669→      <fog attach="fog" args={[spiritual ? '#243055' : '#a8cdf0', 40, 150]} />
+   670→      <ambientLight intensity={spiritual ? 0.65 : 1.1} color={spiritual ? '#8898d8' : '#ffffff'} />
+   671→      <directionalLight position={[20, 34, 16]} intensity={1.6} color="#fff4e0" castShadow={false} />
+   672→      <directionalLight position={[-14, 10, -18]} intensity={0.8} color="#88c8f0" />
+   673→      <SkyGradient spiritual={spiritual} />
+   674→      <BossFight encounter={encounter} onEnd={onEnd} />
+   675→    </>
+   676→  )
+   677→}
+   678→
+   679→function SkyGradient({ spiritual }: { spiritual: boolean }) {
+   680→  const texture = useMemo(() => {
+   681→    const c = document.createElement('canvas')
+   682→    c.width = 2
+   683→    c.height = 256
+   684→    const ctx = c.getContext('2d')!
+   685→    const g = ctx.createLinearGradient(0, 0, 0, 256)
+   686→    g.addColorStop(0, spiritual ? '#0c1228' : '#3c78c8')
+   687→    g.addColorStop(0.6, spiritual ? '#28345c' : '#88bce8')
+   688→    g.addColorStop(1, spiritual ? '#384470' : '#e8f2fc')
+   689→    ctx.fillStyle = g
+   690→    ctx.fillRect(0, 0, 2, 256)
+   691→    const tex = new THREE.CanvasTexture(c)
+   692→    tex.colorSpace = THREE.SRGBColorSpace
+   693→    return tex
+   694→  }, [spiritual])
+   695→  return (
+   696→    <mesh>
+   697→      <sphereGeometry args={[170, 24, 16]} />
+   698→      <meshBasicMaterial map={texture} side={THREE.BackSide} depthWrite={false} fog={false} />
+   699→    </mesh>
+   700→  )
+   701→}
+   702→
+   703→export function BossWorld({ encounter, onEnd }: { encounter: BossEncounter; onEnd: (r: 'victory' | 'defeat') => void }) {
+   704→  const quality = useCreatorStore.getState().quality
+   705→  return (
+   706→    <div className="h-full w-full">
+   707→      <Canvas
+   708→        shadows={quality.shadows}
+   709→        dpr={quality.dpr}
+   710→        gl={{ antialias: quality.antialias }}
+   711→        style={{ touchAction: 'none' }}
+   712→      >
+   713→        <Suspense fallback={null}>
+   714→          <BossScene encounter={encounter} onEnd={onEnd} />
+   715→        </Suspense>
+   716→      </Canvas>
+   717→    </div>
+   718→  )
+   719→}
+   720→
