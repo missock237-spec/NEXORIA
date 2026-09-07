@@ -82,18 +82,19 @@ def smoothstep(e0: float, e1: float, v: np.ndarray) -> np.ndarray:
 
 
 def bilinear_sample(img: np.ndarray, px: np.ndarray, py: np.ndarray) -> np.ndarray:
-    """Échantillonnage bilinéaire de `img` (rangée 0 = nord) aux pixels (px, py)."""
+    """Échantillonnage bilinéaire élément-par-élément de `img` (rangée 0 = nord).
+
+    px et py : même forme (1D ou 2D), en pixels carte.
+    """
     h, w = img.shape
-    px = np.clip(px, 0.0, w - 1.001)
-    py = np.clip(py, 0.0, h - 1.001)
+    px = np.clip(np.asarray(px, dtype=np.float64), 0.0, w - 1.001)
+    py = np.clip(np.asarray(py, dtype=np.float64), 0.0, h - 1.001)
     x0 = px.astype(np.int64); y0 = py.astype(np.int64)
-    fx = (px - x0)[:, None] if px.ndim == 1 else px - x0
-    fy = (py - y0)[:, None] if py.ndim == 1 else py - y0
+    fx = px - x0
+    fy = py - y0
     x1 = np.minimum(x0 + 1, w - 1); y1 = np.minimum(y0 + 1, h - 1)
     a = img[y0, x0]; b = img[y0, x1]; c = img[y1, x0]; d = img[y1, x1]
-    if fx.ndim == 2:
-        return (a * (1 - fx) * (1 - fy) + b * fx * (1 - fy) + c * (1 - fx) * fy + d * fx * fy)
-    return (a * (1 - fx) * (1 - fy) + b * fx * (1 - fy) + c * (1 - fx) * fy + d * fx * fy).ravel()
+    return a * (1 - fx) * (1 - fy) + b * fx * (1 - fy) + c * (1 - fx) * fy + d * fx * fy
 
 
 def map_coords(res: int, dtype=np.float64):

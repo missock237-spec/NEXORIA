@@ -1,0 +1,318 @@
+{
+ "species": {
+  "tree_oak": {
+   "fr": "Chêne",
+   "biomes": [
+    "temperate_forest",
+    "mixed_forest"
+   ],
+   "density_m2": 0.006,
+   "h_m": [
+    8,
+    18
+   ],
+   "lod_tris": [
+    420,
+    180,
+    40
+   ]
+  },
+  "tree_pine": {
+   "fr": "Pin sylvestre",
+   "biomes": [
+    "taiga",
+    "mixed_forest",
+    "alpine_meadow"
+   ],
+   "density_m2": 0.008,
+   "h_m": [
+    10,
+    22
+   ],
+   "lod_tris": [
+    380,
+    160,
+    36
+   ]
+  },
+  "tree_spruce": {
+   "fr": "Épicéa noir",
+   "biomes": [
+    "taiga",
+    "tundra"
+   ],
+   "density_m2": 0.005,
+   "h_m": [
+    9,
+    20
+   ],
+   "lod_tris": [
+    360,
+    150,
+    34
+   ]
+  },
+  "tree_palm": {
+   "fr": "Palmier",
+   "biomes": [
+    "savanna",
+    "mediterranean",
+    "coast"
+   ],
+   "density_m2": 0.002,
+   "h_m": [
+    6,
+    12
+   ],
+   "lod_tris": [
+    340,
+    140,
+    30
+   ]
+  },
+  "tree_banyan": {
+   "fr": "Banyan-jungle",
+   "biomes": [
+    "jungle"
+   ],
+   "density_m2": 0.01,
+   "h_m": [
+    12,
+    30
+   ],
+   "lod_tris": [
+    900,
+    320,
+    60
+   ]
+  },
+  "tree_dead": {
+   "fr": "Arbre mort",
+   "biomes": [
+    "swamp",
+    "badlands",
+    "tundra"
+   ],
+   "density_m2": 0.003,
+   "h_m": [
+    5,
+    12
+   ],
+   "lod_tris": [
+    240,
+    100,
+    24
+   ]
+  },
+  "tree_magic": {
+   "fr": "Arbre luminescent",
+   "biomes": [
+    "magic_glade",
+    "jungle"
+   ],
+   "density_m2": 0.004,
+   "h_m": [
+    10,
+    26
+   ],
+   "lod_tris": [
+    760,
+    300,
+    56
+   ]
+  },
+  "bush_common": {
+   "fr": "Buisson",
+   "biomes": [
+    "temperate_forest",
+    "mixed_forest",
+    "grassland",
+    "savanna"
+   ],
+   "density_m2": 0.02,
+   "h_m": [
+    0.8,
+    2.2
+   ],
+   "lod_tris": [
+    90,
+    40,
+    12
+   ]
+  },
+  "grass_tuft": {
+   "fr": "Touffe d'herbe",
+   "biomes": [
+    "grassland",
+    "savanna",
+    "temperate_forest",
+    "alpine_meadow"
+   ],
+   "density_m2": 0.3,
+   "h_m": [
+    0.3,
+    0.9
+   ],
+   "lod_tris": [
+    24,
+    12,
+    6
+   ]
+  },
+  "flower_patch": {
+   "fr": "Fleurs",
+   "biomes": [
+    "grassland",
+    "alpine_meadow",
+    "magic_glade"
+   ],
+   "density_m2": 0.06,
+   "h_m": [
+    0.2,
+    0.5
+   ],
+   "lod_tris": [
+    20,
+    10,
+    6
+   ]
+  },
+  "mushroom": {
+   "fr": "Champignon",
+   "biomes": [
+    "temperate_forest",
+    "swamp",
+    "jungle",
+    "taiga"
+   ],
+   "density_m2": 0.01,
+   "h_m": [
+    0.2,
+    0.8
+   ],
+   "lod_tris": [
+    40,
+    18,
+    8
+   ]
+  },
+  "cactus": {
+   "fr": "Cactus barbelé",
+   "biomes": [
+    "desert",
+    "badlands"
+   ],
+   "density_m2": 0.002,
+   "h_m": [
+    1.5,
+    4
+   ],
+   "lod_tris": [
+    140,
+    60,
+    16
+   ]
+  },
+  "rock_small": {
+   "fr": "Rocher",
+   "biomes": [
+    "__all_land__"
+   ],
+   "density_m2": 0.004,
+   "h_m": [
+    0.5,
+    3
+   ],
+   "lod_tris": [
+    120,
+    60,
+    20
+   ]
+  },
+  "rock_peak": {
+   "fr": "Bloc d'altitude",
+   "biomes": [
+    "alpine_rock",
+    "alpine_meadow",
+    "glacier_peak",
+    "volcanic"
+   ],
+   "density_m2": 0.006,
+   "h_m": [
+    2,
+    8
+   ],
+   "lod_tris": [
+    260,
+    110,
+    30
+   ]
+  },
+  "reed": {
+   "fr": "Roseaux",
+   "biomes": [
+    "swamp",
+    "lake"
+   ],
+   "density_m2": 0.08,
+   "h_m": [
+    1,
+    2.4
+   ],
+   "lod_tris": [
+    28,
+    14,
+    8
+   ]
+  }
+ },
+ "family": {
+  "trees": [
+   "tree_oak",
+   "tree_pine",
+   "tree_spruce",
+   "tree_palm",
+   "tree_banyan",
+   "tree_dead",
+   "tree_magic"
+  ],
+  "bushes": [
+   "bush_common",
+   "cactus",
+   "reed"
+  ],
+  "grass": [
+   "grass_tuft",
+   "flower_patch",
+   "mushroom"
+  ],
+  "rocks": [
+   "rock_small",
+   "rock_peak"
+  ]
+ },
+ "density_by_biome": {
+  "temperate_forest": 1.0,
+  "mixed_forest": 0.9,
+  "taiga": 0.95,
+  "jungle": 1.15,
+  "magic_glade": 0.9,
+  "swamp": 0.8,
+  "alpine_meadow": 0.6,
+  "grassland": 0.5,
+  "savanna": 0.45,
+  "mediterranean": 0.5,
+  "tundra": 0.25,
+  "taiga_x": 0.9,
+  "badlands": 0.2,
+  "desert": 0.08,
+  "alpine_rock": 0.15,
+  "glacier_peak": 0.05,
+  "ice_sheet": 0.02,
+  "volcanic": 0.1,
+  "coast": 0.3,
+  "lake": 0.4,
+  "ocean": 0.0,
+  "ocean_deep": 0.0
+ }
+}
