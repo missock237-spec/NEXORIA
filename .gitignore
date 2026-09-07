@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Caches de génération (re-générables)
+WorldData/cache/
+*.npy
+
+# Unity (futur projet Unity)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Logs/
+UserSettings/
+*.csproj
+*.sln
+*.unityuser
+
+# OS
+.DS_Store
+Thumbs.db

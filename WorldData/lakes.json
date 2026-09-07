@@ -1,0 +1,54 @@
+{
+ "lakes": [
+  {
+   "id": "LAKE_001",
+   "name": "Lac Oren",
+   "world": [
+    13664.0,
+    10080.0
+   ],
+   "radius_m": 1152.0,
+   "surface_m2": 4132864.0
+  },
+  {
+   "id": "LAKE_002",
+   "name": "Lac Ori",
+   "world": [
+    16352.0,
+    6752.0
+   ],
+   "radius_m": 1152.0,
+   "surface_m2": 4132864.0
+  },
+  {
+   "id": "LAKE_003",
+   "name": "Lac Bel",
+   "world": [
+    -11936.0,
+    5344.0
+   ],
+   "radius_m": 1408.0,
+   "surface_m2": 6213632.0
+  },
+  {
+   "id": "LAKE_004",
+   "name": "Lac San",
+   "world": [
+    25056.0,
+    1888.0
+   ],
+   "radius_m": 1472.0,
+   "surface_m2": 6770688.0
+  },
+  {
+   "id": "LAKE_005",
+   "name": "Lac Tir",
+   "world": [
+    -20384.0,
+    -11040.0
+   ],
+   "radius_m": 1216.0,
+   "surface_m2": 4624384.0
+  }
+ ]
+}

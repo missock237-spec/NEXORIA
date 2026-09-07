@@ -1,0 +1,64 @@
+{
+ "volcanoes": [
+  {
+   "id": "VOLCANO_01",
+   "name": "Volcan Grim",
+   "world": [
+    -20432.0,
+    21488.0
+   ],
+   "altitude_m": 4600.0,
+   "status": "endormi"
+  },
+  {
+   "id": "VOLCANO_02",
+   "name": "Volcan Krug",
+   "world": [
+    -17744.0,
+    4400.0
+   ],
+   "altitude_m": 2107.2,
+   "status": "dormant"
+  },
+  {
+   "id": "VOLCANO_03",
+   "name": "Volcan Dra",
+   "world": [
+    3120.0,
+    8464.0
+   ],
+   "altitude_m": 1212.6,
+   "status": "endormi"
+  },
+  {
+   "id": "VOLCANO_04",
+   "name": "Volcan Thra",
+   "world": [
+    -20560.0,
+    -1104.0
+   ],
+   "altitude_m": 1487.7,
+   "status": "dormant"
+  },
+  {
+   "id": "VOLCANO_05",
+   "name": "Volcan Stone",
+   "world": [
+    15440.0,
+    3632.0
+   ],
+   "altitude_m": 1380.6,
+   "status": "dormant"
+  },
+  {
+   "id": "VOLCANO_06",
+   "name": "Volcan Krug",
+   "world": [
+    -12432.0,
+    688.0
+   ],
+   "altitude_m": 1242.1,
+   "status": "actif"
+  }
+ ]
+}

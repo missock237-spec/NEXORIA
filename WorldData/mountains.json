@@ -1,0 +1,928 @@
+{
+ "mountain_ranges": [
+  {
+   "id": "RANGE_01",
+   "name": "Monts Thragash",
+   "peak_count": 27177,
+   "bbox_world": [
+    -20528.0,
+    -432.0,
+    -14800.0,
+    5296.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -16496.0,
+     368.0,
+     4600.0
+    ],
+    "name": "Pic Stone",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -16496.0,
+      368.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -15728.0,
+      1680.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -16496.0,
+      336.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -17168.0,
+      1008.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19472.0,
+      4016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -17168.0,
+      1040.0,
+      4600.0
+     ]
+    }
+   ],
+   "visual_identity": "mesas stratifiées ocre et canyons"
+  },
+  {
+   "id": "RANGE_02",
+   "name": "Chaîne des Garley",
+   "peak_count": 23763,
+   "bbox_world": [
+    -17136.0,
+    -656.0,
+    -11408.0,
+    5072.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -16496.0,
+     336.0,
+     4600.0
+    ],
+    "name": "Pic Dur",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -16496.0,
+      336.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -16496.0,
+      368.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -15728.0,
+      1680.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -16528.0,
+      368.0,
+      4599.9
+     ]
+    },
+    {
+     "world": [
+      -16496.0,
+      400.0,
+      4580.8
+     ]
+    },
+    {
+     "world": [
+      -16464.0,
+      368.0,
+      4522.1
+     ]
+    }
+   ],
+   "visual_identity": "aiguilles karstiques couvertes de nuages bas"
+  },
+  {
+   "id": "RANGE_03",
+   "name": "Monts Aelthia",
+   "peak_count": 21094,
+   "bbox_world": [
+    -22032.0,
+    19344.0,
+    -16304.0,
+    25072.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -19888.0,
+     22576.0,
+     4600.0
+    ],
+    "name": "Pic Gro",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -19888.0,
+      22576.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21296.0,
+      19920.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21328.0,
+      19920.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21360.0,
+      19920.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21392.0,
+      19920.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21424.0,
+      19920.0,
+      4600.0
+     ]
+    }
+   ],
+   "visual_identity": "crêtes dentelées granit + glaciers suspendus"
+  },
+  {
+   "id": "RANGE_04",
+   "name": "Chaîne des Voacal",
+   "peak_count": 20078,
+   "bbox_world": [
+    -17904.0,
+    -3696.0,
+    -12176.0,
+    2032.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -16496.0,
+     336.0,
+     4600.0
+    ],
+    "name": "Pic Gro",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -16496.0,
+      336.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -15728.0,
+      1680.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -17168.0,
+      1040.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -16496.0,
+      368.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -17168.0,
+      1008.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -16528.0,
+      368.0,
+      4599.9
+     ]
+    }
+   ],
+   "visual_identity": "dômes volcaniques sombres striés de lave"
+  },
+  {
+   "id": "RANGE_05",
+   "name": "Monts Gromor",
+   "peak_count": 18028,
+   "bbox_world": [
+    -12752.0,
+    -2096.0,
+    -7024.0,
+    3632.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -9392.0,
+     2544.0,
+     4600.0
+    ],
+    "name": "Pic Gro",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -9392.0,
+      2544.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -9840.0,
+      1936.0,
+      4584.9
+     ]
+    },
+    {
+     "world": [
+      -9264.0,
+      2640.0,
+      4539.3
+     ]
+    },
+    {
+     "world": [
+      -9808.0,
+      1936.0,
+      4528.5
+     ]
+    },
+    {
+     "world": [
+      -11408.0,
+      2064.0,
+      4515.5
+     ]
+    },
+    {
+     "world": [
+      -9392.0,
+      2576.0,
+      4505.9
+     ]
+    }
+   ],
+   "visual_identity": "aiguilles karstiques couvertes de nuages bas"
+  },
+  {
+   "id": "RANGE_06",
+   "name": "Chaîne des Xalrath",
+   "peak_count": 18018,
+   "bbox_world": [
+    -15728.0,
+    -400.0,
+    -10000.0,
+    5328.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -15728.0,
+     1680.0,
+     4600.0
+    ],
+    "name": "Pic Stone",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -15728.0,
+      1680.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -11408.0,
+      2064.0,
+      4515.5
+     ]
+    },
+    {
+     "world": [
+      -15728.0,
+      1712.0,
+      4468.8
+     ]
+    },
+    {
+     "world": [
+      -11632.0,
+      1904.0,
+      4454.0
+     ]
+    },
+    {
+     "world": [
+      -11408.0,
+      2032.0,
+      4425.4
+     ]
+    },
+    {
+     "world": [
+      -11408.0,
+      2000.0,
+      4423.2
+     ]
+    }
+   ],
+   "visual_identity": "crêtes dentelées granit + glaciers suspendus"
+  },
+  {
+   "id": "RANGE_07",
+   "name": "Monts Krugkrug",
+   "peak_count": 17807,
+   "bbox_world": [
+    -23600.0,
+    -112.0,
+    -17872.0,
+    5616.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -18672.0,
+     4464.0,
+     4600.0
+    ],
+    "name": "Pic Dur",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -18672.0,
+      4464.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -18704.0,
+      4464.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19472.0,
+      4016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -18672.0,
+      4432.0,
+      4540.1
+     ]
+    },
+    {
+     "world": [
+      -19504.0,
+      4016.0,
+      4516.5
+     ]
+    },
+    {
+     "world": [
+      -18640.0,
+      4432.0,
+      4510.4
+     ]
+    }
+   ],
+   "visual_identity": "aiguilles karstiques couvertes de nuages bas"
+  },
+  {
+   "id": "RANGE_08",
+   "name": "Chaîne des Orenbel",
+   "peak_count": 16777,
+   "bbox_world": [
+    -19888.0,
+    464.0,
+    -14160.0,
+    6192.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -17168.0,
+     1040.0,
+     4600.0
+    ],
+    "name": "Pic Stone",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -17168.0,
+      1040.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19472.0,
+      4016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -18672.0,
+      4464.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -18704.0,
+      4464.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -17168.0,
+      1008.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -15728.0,
+      1680.0,
+      4600.0
+     ]
+    }
+   ],
+   "visual_identity": "crêtes dentelées granit + glaciers suspendus"
+  },
+  {
+   "id": "RANGE_09",
+   "name": "Monts Orisia",
+   "peak_count": 16206,
+   "bbox_world": [
+    -19728.0,
+    3504.0,
+    -14000.0,
+    9232.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -18672.0,
+     4464.0,
+     4600.0
+    ],
+    "name": "Pic Bur",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -18672.0,
+      4464.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -18704.0,
+      4464.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19472.0,
+      4016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -18672.0,
+      4432.0,
+      4540.1
+     ]
+    },
+    {
+     "world": [
+      -19504.0,
+      4016.0,
+      4516.5
+     ]
+    },
+    {
+     "world": [
+      -18640.0,
+      4432.0,
+      4510.4
+     ]
+    }
+   ],
+   "visual_identity": "aiguilles karstiques couvertes de nuages bas"
+  },
+  {
+   "id": "RANGE_10",
+   "name": "Chaîne des Irilyn",
+   "peak_count": 16159,
+   "bbox_world": [
+    -12496.0,
+    -1616.0,
+    -6768.0,
+    4048.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     -9392.0,
+     2544.0,
+     4600.0
+    ],
+    "name": "Pic Gro",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -9392.0,
+      2544.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -9840.0,
+      1936.0,
+      4584.9
+     ]
+    },
+    {
+     "world": [
+      -9264.0,
+      2640.0,
+      4539.3
+     ]
+    },
+    {
+     "world": [
+      -9808.0,
+      1936.0,
+      4528.5
+     ]
+    },
+    {
+     "world": [
+      -11408.0,
+      2064.0,
+      4515.5
+     ]
+    },
+    {
+     "world": [
+      -9392.0,
+      2576.0,
+      4505.9
+     ]
+    }
+   ],
+   "visual_identity": "massifs arrondis érodés, forêts en escaliers"
+  },
+  {
+   "id": "RANGE_11",
+   "name": "Monts Durdra",
+   "peak_count": 16090,
+   "bbox_world": [
+    16976.0,
+    -1488.0,
+    22704.0,
+    4240.0
+   ],
+   "length_km": 8.1,
+   "highest_peak": {
+    "world": [
+     17040.0,
+     1776.0,
+     3940.43359375
+    ],
+    "name": "Pic Stone",
+    "altitude_m": 3940.4
+   },
+   "peaks": [
+    {
+     "world": [
+      17040.0,
+      1776.0,
+      3940.4
+     ]
+    },
+    {
+     "world": [
+      17200.0,
+      880.0,
+      3906.4
+     ]
+    },
+    {
+     "world": [
+      17040.0,
+      656.0,
+      3893.5
+     ]
+    },
+    {
+     "world": [
+      18992.0,
+      -496.0,
+      3892.4
+     ]
+    },
+    {
+     "world": [
+      17168.0,
+      816.0,
+      3889.6
+     ]
+    },
+    {
+     "world": [
+      17168.0,
+      848.0,
+      3886.9
+     ]
+    }
+   ],
+   "visual_identity": "crêtes dentelées granit + glaciers suspendus"
+  },
+  {
+   "id": "RANGE_12",
+   "name": "Chaîne des Itzza",
+   "peak_count": 15829,
+   "bbox_world": [
+    -23248.0,
+    16112.0,
+    -18832.0,
+    21840.0
+   ],
+   "length_km": 7.2,
+   "highest_peak": {
+    "world": [
+     -20912.0,
+     20016.0,
+     4600.0
+    ],
+    "name": "Pic Gro",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -20912.0,
+      20016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21168.0,
+      20016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21200.0,
+      20016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21232.0,
+      20016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21264.0,
+      20016.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -21296.0,
+      20016.0,
+      4600.0
+     ]
+    }
+   ],
+   "visual_identity": "aiguilles karstiques couvertes de nuages bas"
+  },
+  {
+   "id": "RANGE_13",
+   "name": "Monts Kharstone",
+   "peak_count": 15755,
+   "bbox_world": [
+    -21936.0,
+    16400.0,
+    -16976.0,
+    22128.0
+   ],
+   "length_km": 7.6,
+   "highest_peak": {
+    "world": [
+     -18832.0,
+     18704.0,
+     4600.0
+    ],
+    "name": "Pic Thra",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -18832.0,
+      18704.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19280.0,
+      19376.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19312.0,
+      19376.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19344.0,
+      19376.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19376.0,
+      19376.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19408.0,
+      19376.0,
+      4600.0
+     ]
+    }
+   ],
+   "visual_identity": "dômes volcaniques sombres striés de lave"
+  },
+  {
+   "id": "RANGE_14",
+   "name": "Chaîne des Morley",
+   "peak_count": 15452,
+   "bbox_world": [
+    -21488.0,
+    19440.0,
+    -16784.0,
+    25168.0
+   ],
+   "length_km": 7.4,
+   "highest_peak": {
+    "world": [
+     -19536.0,
+     20080.0,
+     4600.0
+    ],
+    "name": "Pic Gro",
+    "altitude_m": 4600.0
+   },
+   "peaks": [
+    {
+     "world": [
+      -19536.0,
+      20080.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19632.0,
+      23024.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19408.0,
+      23024.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19440.0,
+      23024.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19472.0,
+      23024.0,
+      4600.0
+     ]
+    },
+    {
+     "world": [
+      -19504.0,
+      23024.0,
+      4600.0
+     ]
+    }
+   ],
+   "visual_identity": "massifs arrondis érodés, forêts en escaliers"
+  }
+ ]
+}

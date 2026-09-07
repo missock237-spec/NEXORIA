@@ -1,0 +1,123 @@
+{
+ "biome_table": {
+  "ocean_deep": {
+   "fr": "Océan profond",
+   "color": "#0a1d3a",
+   "water": true
+  },
+  "ocean": {
+   "fr": "Océan",
+   "color": "#123a63",
+   "water": true
+  },
+  "coast": {
+   "fr": "Eaux côtières",
+   "color": "#1f6fa8",
+   "water": true
+  },
+  "lake": {
+   "fr": "Lac",
+   "color": "#2b86c5",
+   "water": true
+  },
+  "ice_sheet": {
+   "fr": "Inlandsis",
+   "color": "#e8f2f7"
+  },
+  "glacier_peak": {
+   "fr": "Pics glaciaires",
+   "color": "#cfe0ea"
+  },
+  "tundra": {
+   "fr": "Toundra",
+   "color": "#9fb8a4"
+  },
+  "taiga": {
+   "fr": "Taïga",
+   "color": "#3e6b4f"
+  },
+  "temperate_forest": {
+   "fr": "Forêt tempérée",
+   "color": "#3f7d3a"
+  },
+  "mixed_forest": {
+   "fr": "Forêt mixte",
+   "color": "#57894a"
+  },
+  "grassland": {
+   "fr": "Prairies",
+   "color": "#8fae4e"
+  },
+  "mediterranean": {
+   "fr": "Garrigue méditerranéenne",
+   "color": "#a8a84f"
+  },
+  "savanna": {
+   "fr": "Savane",
+   "color": "#c2b45a"
+  },
+  "desert": {
+   "fr": "Désert",
+   "color": "#e0c98f"
+  },
+  "badlands": {
+   "fr": "Badlands",
+   "color": "#b07850"
+  },
+  "jungle": {
+   "fr": "Jungle",
+   "color": "#1f6b33"
+  },
+  "swamp": {
+   "fr": "Marécage",
+   "color": "#4f6b44"
+  },
+  "alpine_meadow": {
+   "fr": "Prairies alpines",
+   "color": "#7ba05f"
+  },
+  "alpine_rock": {
+   "fr": "Rocs alpins",
+   "color": "#8a8a86"
+  },
+  "volcanic": {
+   "fr": "Terres volcaniques",
+   "color": "#5a3038"
+  },
+  "magic_glade": {
+   "fr": "Clairière magique",
+   "color": "#7fe0c8"
+  }
+ },
+ "generation": {
+  "climate_res": 512,
+  "latitude_span": [
+   -60,
+   70
+  ],
+  "prevailing_wind": "ouest -> est (ombre pluviométrique activée)",
+  "temperature_model": "gradient latitude - 6.5°C/km d'altitude + bruit",
+  "moisture_model": "distance à l'eau + ombre pluviométrique + bruit"
+ },
+ "fractions": {
+  "alpine_meadow": 0.0004,
+  "alpine_rock": 0.1518,
+  "badlands": 0.0024,
+  "coast": 0.0646,
+  "desert": 0.0006,
+  "glacier_peak": 0.0032,
+  "ice_sheet": 0.0083,
+  "jungle": 0.0568,
+  "lake": 0.0161,
+  "mediterranean": 0.0041,
+  "mixed_forest": 0.0131,
+  "ocean": 0.254,
+  "ocean_deep": 0.2322,
+  "savanna": 0.016,
+  "swamp": 0.0152,
+  "taiga": 0.054,
+  "temperate_forest": 0.0687,
+  "tundra": 0.0346,
+  "volcanic": 0.004
+ }
+}
