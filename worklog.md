@@ -66,3 +66,57 @@ Stage Summary:
 - Pipeline complet 15 étages idempotent et déterministe (seed 0x4E455852)
 - Validation finale : 0 erreur, 1 avertissement documenté (falaises raides)
 - 71 Mo suivis par Git, 1115 fichiers
+
+---
+Task ID: 10
+Agent: Super Z (main)
+Task: SYSTÈME OFFICIEL DE CRÉATION D'AVATAR — implémentation complète (parcours §1-27)
+
+Work Log:
+- Architecture données : Prisma (Account/Session/Character), 9 races complètes
+  (palettes, options raciales, capacités, villages), 4 classes, 24 pièces
+  d'équipement (13 slots), 30 villages (3/race + multiculturels) avec 6 spawn
+  points sûrs chacun, PNJ nommés
+- Auth serveur : scrypt + sessions DB + cookies httpOnly (30j), récupération
+  par clé unique affichée une fois, invalidation des sessions au reset
+- API 100% serveur-authoritaire : validate-name (longueur/caractères/interdits/
+  unicité DB), create (race→classe→apparence→équipement→stats→village→spawn),
+  enter (propriété + sécurité position), quests/progress (anti-saut d'étapes)
+- Attribution village : charge relative min (population/capacité) + bruit
+  déterministe sha256(serverSeed|characterSeed|village) → répartition équilibrée
+  vérifiée (9 elfes → 4 villages, aucun monopolisé)
+- Avatar 3D procédural (R3F) : ~90 meshes, 0 géométrie régénérée (100% transforms
+  = approche blend-shapes), oreilles elfiques/animale/aile, museau+crocs lycan,
+  cornes+écailles drakéen, barbes naines, marques emissives (ombre/abysses/
+  astres), coiffures 13 styles, équipement suivi de squelette (dagues jumelles,
+  bâton+orbe, bouclier, grimoire, capes animées)
+- Écrans : Titre étoilé → Auth (3 onglets + clé récupération) → Sélection héros →
+  Identité (validation live serveur) → Race (galerie 9 + presets caméra) →
+  Créateur (5 onglets, 10 sliders visage, corps borné par race, 6 teintes tenue) →
+  Classe (aperçu équipé) → Équipement (slots détaillés) → Vérification →
+  Création (étapes serveur animées) → Chargement → Village
+- Village 3D jouable : génération déterministe (mulberry32(village.id)), 9 maisons
+  style par thème, arbres 6 espèces, props (forge, puits, totems, lanternes
+  lumineuses), 3-4 PNJ animés étiquetés, collisions cercle, caméra 3e personne
+  drag-souris/tactile, ZQSD+WASD+flèches (e.code → AZERTY natif), joystick
+  virtuel Android, sprint, intro réglementaire, dialogues PNJ, quête
+  « Bienvenue » 3 étapes (ancien → garde → mannequin×3) persistée +50 XP
+- Corrigé en testant : useRef manquant (crash WebGL), powerPreference retiré,
+  ErrorBoundary 3D gracieuse, refs React Compiler, hooks conditionnels,
+  animation marche via moveRef
+- Testé Agent Browser (Pixel 7 + desktop) : parcours Kael/Lycan/Ninja COMPLET
+  jusqu'à « Quête terminée +50 XP », reconnexion multi-appareils validée
+  (XP conservée sur session mobile), joystick Android actif, qualité
+  LOW/MEDIUM/HIGH/ULTRA commutable
+
+Stage Summary:
+- SYSTÈME DE CRÉATION D'AVATAR : OPÉRATIONNEL et vérifié de bout en bout
+- Sécurité : 7/7 tests anti-triche rejetés (race fantôme, apparence falsifiée,
+  sans session, noms interdits, doublons, saut de quête, équipement non autorisé)
+- Fichiers : prisma/schema.prisma, src/lib/{auth,store,db}.ts,
+  src/lib/game/{types,config,races,classes,villages,stats,appearance-validation,
+  assignment,runtime}.ts, src/app/api/** (9 routes), src/components/three/
+  {AvatarModel,AvatarPreview,VillageWorld,WebGLErrorBoundary}.tsx,
+  src/components/screens/ (10 écrans), scripts/test_*.py|sh
+- Limites honnêtes : pas d'audio, PNJ statiques (idle seul), monde solo local
+  (pas de multijoueur temps réel), position sauvegardée au spawn (pas en continu)

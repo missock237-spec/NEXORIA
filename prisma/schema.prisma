@@ -1,0 +1,56 @@
+// NEXORIA — Schéma de données : Comptes, Sessions, Personnages
+// Principe : ACCOUNT ≠ CHARACTER. Un personnage appartient à un compte.
+// Le serveur est autoritaire : stats/village/position générés côté serveur uniquement.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db/nexoria.db"
+}
+
+model Account {
+  id             String      @id @default(cuid())
+  email          String      @unique
+  passwordHash   String
+  recoveryKey    String
+  createdAt      DateTime    @default(now())
+  lastLoginAt    DateTime?
+  characters     Character[]
+  sessions       Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  accountId String
+  account   Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model Character {
+  id              String   @id @default(cuid())
+  accountId       String
+  account         Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  name            String   @unique
+  race            String
+  class           String
+  appearanceJson  String // JSON validé côté serveur
+  equipmentJson   String // JSON généré côté serveur
+  statsJson       String // JSON généré côté serveur
+  skillsJson      String // JSON généré côté serveur
+  startingVillage String
+  spawnPoint      String
+  positionJson    String // {x,y,z} position de départ
+  level           Int      @default(1)
+  xp              Int      @default(0)
+  gold            Int      @default(0)
+  questsJson      String   @default("{}")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([accountId])
+}
