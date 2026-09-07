@@ -1,0 +1,756 @@
+{
+ "nomenclature": "Environment/<Catégorie>/<PREFIXE>_<Nom>_<Variante>",
+ "lod_scheme": "LOD0 100 % / LOD1 45 % / LOD2 12 % des triangles + impostors au-delà de 300 m",
+ "assets": [
+  {
+   "path": "Environment/Mountains/MTN_CliffWall_A",
+   "name": "MTN_CliffWall_A",
+   "lod_tris": [
+    2400,
+    1080,
+    288
+   ],
+   "collision": "box",
+   "materials": [
+    "M_A"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Mountains/MTN_PeakJagged_A",
+   "name": "MTN_PeakJagged_A",
+   "lod_tris": [
+    3600,
+    1620,
+    432
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_A"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Mountains/MTN_Plateau_Mesa",
+   "name": "MTN_Plateau_Mesa",
+   "lod_tris": [
+    2800,
+    1260,
+    336
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Mesa"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Mountains/MTN_VolcanoCone",
+   "name": "MTN_VolcanoCone",
+   "lod_tris": [
+    5200,
+    2340,
+    624
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_VolcanoCone"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Rocks/RCK_Boulder_L",
+   "name": "RCK_Boulder_L",
+   "lod_tris": [
+    620,
+    279,
+    74
+   ],
+   "collision": "box",
+   "materials": [
+    "M_L"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Rocks/RCK_Boulder_M",
+   "name": "RCK_Boulder_M",
+   "lod_tris": [
+    320,
+    144,
+    38
+   ],
+   "collision": "box",
+   "materials": [
+    "M_M"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Rocks/RCK_CliffStep",
+   "name": "RCK_CliffStep",
+   "lod_tris": [
+    480,
+    216,
+    57
+   ],
+   "collision": "box",
+   "materials": [
+    "M_CliffStep"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Rocks/RCK_StandingStones",
+   "name": "RCK_StandingStones",
+   "lod_tris": [
+    540,
+    243,
+    64
+   ],
+   "collision": "box",
+   "materials": [
+    "M_StandingStones"
+   ],
+   "tags": [
+    "poi"
+   ]
+  },
+  {
+   "path": "Environment/Trees/TRE_Oak_L",
+   "name": "TRE_Oak_L",
+   "lod_tris": [
+    420,
+    189,
+    50
+   ],
+   "collision": "capsule",
+   "materials": [
+    "M_L"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Trees/TRE_Pine_L",
+   "name": "TRE_Pine_L",
+   "lod_tris": [
+    380,
+    171,
+    45
+   ],
+   "collision": "capsule",
+   "materials": [
+    "M_L"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Trees/TRE_Spruce_L",
+   "name": "TRE_Spruce_L",
+   "lod_tris": [
+    360,
+    162,
+    43
+   ],
+   "collision": "capsule",
+   "materials": [
+    "M_L"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Trees/TRE_Banyan_XL",
+   "name": "TRE_Banyan_XL",
+   "lod_tris": [
+    900,
+    405,
+    108
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_XL"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Trees/TRE_Dead_Bare",
+   "name": "TRE_Dead_Bare",
+   "lod_tris": [
+    240,
+    108,
+    28
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Bare"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Trees/TRE_Monument_WorldTree",
+   "name": "TRE_Monument_WorldTree",
+   "lod_tris": [
+    9000,
+    4050,
+    1080
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_WorldTree"
+   ],
+   "tags": [
+    "poi"
+   ]
+  },
+  {
+   "path": "Environment/Vegetation/VEG_Bush_A",
+   "name": "VEG_Bush_A",
+   "lod_tris": [
+    90,
+    40,
+    10
+   ],
+   "collision": null,
+   "materials": [
+    "M_A"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Vegetation/VEG_GrassTuft_A",
+   "name": "VEG_GrassTuft_A",
+   "lod_tris": [
+    24,
+    10,
+    2
+   ],
+   "collision": null,
+   "materials": [
+    "M_A"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Vegetation/VEG_Flowers_A",
+   "name": "VEG_Flowers_A",
+   "lod_tris": [
+    20,
+    9,
+    2
+   ],
+   "collision": null,
+   "materials": [
+    "M_A"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Vegetation/VEG_Reeds",
+   "name": "VEG_Reeds",
+   "lod_tris": [
+    28,
+    12,
+    3
+   ],
+   "collision": null,
+   "materials": [
+    "M_Reeds"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Vegetation/VEG_Mushroom_Glow",
+   "name": "VEG_Mushroom_Glow",
+   "lod_tris": [
+    40,
+    18,
+    4
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Glow"
+   ],
+   "tags": [
+    "magic"
+   ]
+  },
+  {
+   "path": "Environment/Buildings/BLD_House_A",
+   "name": "BLD_House_A",
+   "lod_tris": [
+    1800,
+    810,
+    216
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_A"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_House_B",
+   "name": "BLD_House_B",
+   "lod_tris": [
+    1600,
+    720,
+    192
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_B"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_Farm_Barn",
+   "name": "BLD_Farm_Barn",
+   "lod_tris": [
+    2400,
+    1080,
+    288
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Barn"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_Inn",
+   "name": "BLD_Inn",
+   "lod_tris": [
+    3200,
+    1440,
+    384
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Inn"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_Market_Stall",
+   "name": "BLD_Market_Stall",
+   "lod_tris": [
+    600,
+    270,
+    72
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Stall"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_Temple_Small",
+   "name": "BLD_Temple_Small",
+   "lod_tris": [
+    4200,
+    1890,
+    504
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Small"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_Wall_Segment",
+   "name": "BLD_Wall_Segment",
+   "lod_tris": [
+    900,
+    405,
+    108
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Segment"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_Watchtower",
+   "name": "BLD_Watchtower",
+   "lod_tris": [
+    2600,
+    1170,
+    312
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Watchtower"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_Keep_Capital",
+   "name": "BLD_Keep_Capital",
+   "lod_tris": [
+    12000,
+    5400,
+    1440
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Capital"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Buildings/BLD_Port_Warehouse",
+   "name": "BLD_Port_Warehouse",
+   "lod_tris": [
+    3400,
+    1530,
+    408
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Warehouse"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Ruins/RUI_AetherArch_Floating",
+   "name": "RUI_AetherArch_Floating",
+   "lod_tris": [
+    2800,
+    1260,
+    336
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Floating"
+   ],
+   "tags": [
+    "civ_01"
+   ]
+  },
+  {
+   "path": "Environment/Ruins/RUI_AetherColumn",
+   "name": "RUI_AetherColumn",
+   "lod_tris": [
+    700,
+    315,
+    84
+   ],
+   "collision": "box",
+   "materials": [
+    "M_AetherColumn"
+   ],
+   "tags": [
+    "civ_01"
+   ]
+  },
+  {
+   "path": "Environment/Ruins/RUI_KharnForgeGate",
+   "name": "RUI_KharnForgeGate",
+   "lod_tris": [
+    3400,
+    1530,
+    408
+   ],
+   "collision": "box",
+   "materials": [
+    "M_KharnForgeGate"
+   ],
+   "tags": [
+    "civ_02"
+   ]
+  },
+  {
+   "path": "Environment/Ruins/RUI_SsilPyramidStep",
+   "name": "RUI_SsilPyramidStep",
+   "lod_tris": [
+    6800,
+    3060,
+    816
+   ],
+   "collision": "box",
+   "materials": [
+    "M_SsilPyramidStep"
+   ],
+   "tags": [
+    "civ_03"
+   ]
+  },
+  {
+   "path": "Environment/Ruins/RUI_VoalMonolith",
+   "name": "RUI_VoalMonolith",
+   "lod_tris": [
+    1900,
+    855,
+    228
+   ],
+   "collision": "box",
+   "materials": [
+    "M_VoalMonolith"
+   ],
+   "tags": [
+    "civ_04"
+   ]
+  },
+  {
+   "path": "Environment/Ruins/RUI_GenericBrokenWall",
+   "name": "RUI_GenericBrokenWall",
+   "lod_tris": [
+    420,
+    189,
+    50
+   ],
+   "collision": "box",
+   "materials": [
+    "M_GenericBrokenWall"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Caves/CAV_RockWall_Module",
+   "name": "CAV_RockWall_Module",
+   "lod_tris": [
+    800,
+    360,
+    96
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Module"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Caves/CAV_Stalagmite",
+   "name": "CAV_Stalagmite",
+   "lod_tris": [
+    300,
+    135,
+    36
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Stalagmite"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Caves/CAV_CrystalCluster",
+   "name": "CAV_CrystalCluster",
+   "lod_tris": [
+    420,
+    189,
+    50
+   ],
+   "collision": "box",
+   "materials": [
+    "M_CrystalCluster"
+   ],
+   "tags": [
+    "magic"
+   ]
+  },
+  {
+   "path": "Environment/Caves/CAV_Bridge_Wood",
+   "name": "CAV_Bridge_Wood",
+   "lod_tris": [
+    640,
+    288,
+    76
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Wood"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Dungeons/DGN_Hall_Module",
+   "name": "DGN_Hall_Module",
+   "lod_tris": [
+    1400,
+    630,
+    168
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Module"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Dungeons/DGN_Door_Iron",
+   "name": "DGN_Door_Iron",
+   "lod_tris": [
+    380,
+    171,
+    45
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Iron"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Dungeons/DGN_Throne_Supreme",
+   "name": "DGN_Throne_Supreme",
+   "lod_tris": [
+    5200,
+    2340,
+    624
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Supreme"
+   ],
+   "tags": [
+    "boss"
+   ]
+  },
+  {
+   "path": "Environment/Props/PRP_Campfire",
+   "name": "PRP_Campfire",
+   "lod_tris": [
+    220,
+    99,
+    26
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Campfire"
+   ],
+   "tags": [
+    "light"
+   ]
+  },
+  {
+   "path": "Environment/Props/PRP_ShipWreck",
+   "name": "PRP_ShipWreck",
+   "lod_tris": [
+    3200,
+    1440,
+    384
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_ShipWreck"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/Props/PRP_Waystone",
+   "name": "PRP_Waystone",
+   "lod_tris": [
+    480,
+    216,
+    57
+   ],
+   "collision": "box",
+   "materials": [
+    "M_Waystone"
+   ],
+   "tags": [
+    "fast_travel"
+   ]
+  },
+  {
+   "path": "Environment/Props/PRP_Bridge_Stone",
+   "name": "PRP_Bridge_Stone",
+   "lod_tris": [
+    1500,
+    675,
+    180
+   ],
+   "collision": "mesh",
+   "materials": [
+    "M_Stone"
+   ],
+   "tags": []
+  },
+  {
+   "path": "Environment/VFX/VFX_PortalVoal",
+   "name": "VFX_PortalVoal",
+   "lod_tris": [
+    600,
+    270,
+    72
+   ],
+   "collision": "box",
+   "materials": [
+    "M_PortalVoal"
+   ],
+   "tags": [
+    "civ_04"
+   ]
+  },
+  {
+   "path": "Environment/VFX/VFX_CorruptionAura",
+   "name": "VFX_CorruptionAura",
+   "lod_tris": [
+    200,
+    90,
+    24
+   ],
+   "collision": "box",
+   "materials": [
+    "M_CorruptionAura"
+   ],
+   "tags": [
+    "supreme"
+   ]
+  }
+ ],
+ "quality_profiles": {
+  "LOW": {
+   "view_distance_m": 768,
+   "active_chunks": 12,
+   "lod_bias": 1.6,
+   "max_draw_calls": 220,
+   "texture_memory_mb": 220,
+   "realtime_shadows": "off",
+   "vegetation_density": 0.45,
+   "water_quality": "basic",
+   "particles": 0.4,
+   "target_fps_android": 30
+  },
+  "MEDIUM": {
+   "view_distance_m": 1536,
+   "active_chunks": 25,
+   "lod_bias": 1.2,
+   "max_draw_calls": 380,
+   "texture_memory_mb": 420,
+   "realtime_shadows": "40m cascade",
+   "vegetation_density": 0.7,
+   "water_quality": "reflections_low",
+   "particles": 0.7,
+   "target_fps_android": 30
+  },
+  "HIGH": {
+   "view_distance_m": 3072,
+   "active_chunks": 49,
+   "lod_bias": 1.0,
+   "max_draw_calls": 700,
+   "texture_memory_mb": 900,
+   "realtime_shadows": "80m cascade",
+   "vegetation_density": 0.9,
+   "water_quality": "reflections",
+   "particles": 1.0,
+   "target_fps_pc": 60
+  },
+  "ULTRA": {
+   "view_distance_m": 6144,
+   "active_chunks": 81,
+   "lod_bias": 0.8,
+   "max_draw_calls": 1200,
+   "texture_memory_mb": 1800,
+   "realtime_shadows": "200m cascades",
+   "vegetation_density": 1.0,
+   "water_quality": "full",
+   "particles": 1.0,
+   "target_fps_pc": 60
+  }
+ }
+}

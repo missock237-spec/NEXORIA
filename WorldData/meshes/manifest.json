@@ -1,0 +1,9 @@
+{
+ "starter_region": "REGION_122",
+ "starter_settlement": "SETT_001",
+ "world_preview": "world_preview.obj (128×128, 512 m/vert)",
+ "starter_lod0": "starter_lod0/ : cœur 4×4 chunks autour de la capitale, 4 m/vert",
+ "starter_lod1": "starter_lod1/ : 8×8 chunks, 8 m/vert",
+ "triangles_total": 250522,
+ "note": "OBJ d'aperçu (pas d'UV monde ni matériaux) — Unity reconstruit les meshes depuis les heightmaps RAW16 via Game/World/TerrainChunkBuilder.cs"
+}

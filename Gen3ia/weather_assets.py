@@ -9,7 +9,7 @@ Les valeurs alimentent directement les scripts Unity (Game/Systems/).
 """
 from __future__ import annotations
 import numpy as np
-from .core import rng, save_json, wfile
+from .core import rng, save_json, wfile, load_json
 
 WEATHER_STATES = {
     "clair":        {"cloud": 0.1, "rain": 0.0, "wind": 0.2, "fog": 0.0, "light_mult": 1.0},

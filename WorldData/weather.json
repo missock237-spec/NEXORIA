@@ -1,0 +1,535 @@
+{
+ "weather_states": {
+  "clair": {
+   "cloud": 0.1,
+   "rain": 0.0,
+   "wind": 0.2,
+   "fog": 0.0,
+   "light_mult": 1.0
+  },
+  "nuageux": {
+   "cloud": 0.6,
+   "rain": 0.0,
+   "wind": 0.4,
+   "fog": 0.05,
+   "light_mult": 0.8
+  },
+  "pluie": {
+   "cloud": 0.85,
+   "rain": 0.7,
+   "wind": 0.5,
+   "fog": 0.15,
+   "light_mult": 0.65
+  },
+  "orage": {
+   "cloud": 1.0,
+   "rain": 1.0,
+   "wind": 0.9,
+   "fog": 0.2,
+   "light_mult": 0.5,
+   "lightning": true
+  },
+  "brume": {
+   "cloud": 0.4,
+   "rain": 0.0,
+   "wind": 0.1,
+   "fog": 0.75,
+   "light_mult": 0.7
+  },
+  "neige": {
+   "cloud": 0.8,
+   "rain": 0.0,
+   "snow": 0.8,
+   "wind": 0.4,
+   "fog": 0.2,
+   "light_mult": 0.75
+  },
+  "blizzard": {
+   "cloud": 1.0,
+   "rain": 0.0,
+   "snow": 1.0,
+   "wind": 1.0,
+   "fog": 0.6,
+   "light_mult": 0.55
+  },
+  "tempête_sable": {
+   "cloud": 0.7,
+   "rain": 0.0,
+   "dust": 1.0,
+   "wind": 0.95,
+   "fog": 0.5,
+   "light_mult": 0.6
+  },
+  "canicule": {
+   "cloud": 0.05,
+   "rain": 0.0,
+   "wind": 0.1,
+   "fog": 0.0,
+   "light_mult": 1.15,
+   "heat": 1.0
+  },
+  "cendres": {
+   "cloud": 0.6,
+   "rain": 0.0,
+   "ash": 0.7,
+   "wind": 0.5,
+   "fog": 0.35,
+   "light_mult": 0.7
+  }
+ },
+ "seasons": {
+  "printemps": {
+   "length_days": 24,
+   "temp_delta": 0.05,
+   "moist_delta": 0.08
+  },
+  "été": {
+   "length_days": 26,
+   "temp_delta": 0.14,
+   "moist_delta": -0.04
+  },
+  "automne": {
+   "length_days": 24,
+   "temp_delta": 0.02,
+   "moist_delta": 0.05
+  },
+  "hiver": {
+   "length_days": 26,
+   "temp_delta": -0.2,
+   "moist_delta": 0.02,
+   "snowline_drop_m": 900
+  }
+ },
+ "day_night": {
+  "day_cycle_minutes_real": 36,
+  "sunrise_hour": 6.2,
+  "sunset_hour": 19.4,
+  "night_ambient": [
+   0.1,
+   0.12,
+   0.22
+  ],
+  "dawn_dusk_color": [
+   1.0,
+   0.55,
+   0.3
+  ],
+  "moon_light": 0.18,
+  "stars": true
+ },
+ "families": {
+  "tropique": {
+   "biomes": [
+    "jungle",
+    "savanna",
+    "swamp"
+   ],
+   "weights_per_season": {
+    "printemps": {
+     "clair": 4.93,
+     "nuageux": 3.44,
+     "pluie": 1.66,
+     "brume": 0.77,
+     "orage": 1.3
+    },
+    "été": {
+     "clair": 3.96,
+     "nuageux": 3.61,
+     "pluie": 1.94,
+     "brume": 1.27,
+     "orage": 1.34
+    },
+    "automne": {
+     "clair": 3.33,
+     "nuageux": 3.03,
+     "pluie": 1.26,
+     "brume": 1.1,
+     "orage": 1.04
+    },
+    "hiver": {
+     "clair": 6.3,
+     "nuageux": 1.88,
+     "pluie": 1.96,
+     "brume": 0.73,
+     "orage": 1.24
+    }
+   }
+  },
+  "tempéré": {
+   "biomes": [
+    "temperate_forest",
+    "mixed_forest",
+    "grassland",
+    "mediterranean"
+   ],
+   "weights_per_season": {
+    "printemps": {
+     "clair": 4.62,
+     "nuageux": 3.37,
+     "pluie": 1.28,
+     "brume": 0.7,
+     "orage": 0.46
+    },
+    "été": {
+     "clair": 3.94,
+     "nuageux": 2.98,
+     "pluie": 1.85,
+     "brume": 1.2,
+     "orage": 0.49
+    },
+    "automne": {
+     "clair": 6.01,
+     "nuageux": 3.3,
+     "pluie": 1.39,
+     "brume": 1.39,
+     "orage": 0.31
+    },
+    "hiver": {
+     "clair": 3.34,
+     "nuageux": 1.78,
+     "pluie": 0.87,
+     "brume": 0.95,
+     "orage": 0.62
+    }
+   }
+  },
+  "froid": {
+   "biomes": [
+    "taiga",
+    "tundra",
+    "ice_sheet",
+    "glacier_peak",
+    "alpine_meadow",
+    "alpine_rock"
+   ],
+   "weights_per_season": {
+    "printemps": {
+     "clair": 6.87,
+     "nuageux": 1.94,
+     "pluie": 0.34400000000000003,
+     "brume": 1.34,
+     "orage": 0.67,
+     "neige": 1.6,
+     "blizzard": 0.8
+    },
+    "été": {
+     "clair": 3.42,
+     "nuageux": 3.04,
+     "pluie": 0.196,
+     "brume": 1.23,
+     "orage": 0.47,
+     "neige": 1.6,
+     "blizzard": 0.8
+    },
+    "automne": {
+     "clair": 6.3,
+     "nuageux": 2.22,
+     "pluie": 0.22200000000000003,
+     "brume": 1.26,
+     "orage": 0.6,
+     "neige": 1.6,
+     "blizzard": 0.8
+    },
+    "hiver": {
+     "clair": 3.38,
+     "nuageux": 2.25,
+     "pluie": 0.34,
+     "brume": 0.66,
+     "orage": 0.59,
+     "neige": 1.6,
+     "blizzard": 0.8
+    }
+   }
+  },
+  "aride": {
+   "biomes": [
+    "desert",
+    "badlands",
+    "volcanic"
+   ],
+   "weights_per_season": {
+    "printemps": {
+     "clair": 3.26,
+     "nuageux": 1.96,
+     "pluie": 0.2865,
+     "brume": 1.31,
+     "orage": 0.35,
+     "tempête_sable": 1.8
+    },
+    "été": {
+     "clair": 3.64,
+     "nuageux": 2.61,
+     "pluie": 0.189,
+     "brume": 1.14,
+     "orage": 0.55,
+     "tempête_sable": 1.8
+    },
+    "automne": {
+     "clair": 3.15,
+     "nuageux": 3.1,
+     "pluie": 0.129,
+     "brume": 0.83,
+     "orage": 0.36,
+     "tempête_sable": 1.8
+    },
+    "hiver": {
+     "clair": 6.11,
+     "nuageux": 3.27,
+     "pluie": 0.207,
+     "brume": 0.78,
+     "orage": 0.66,
+     "tempête_sable": 1.8
+    }
+   }
+  },
+  "maritime": {
+   "biomes": [
+    "coast",
+    "ocean",
+    "lake",
+    "ocean_deep"
+   ],
+   "weights_per_season": {
+    "printemps": {
+     "clair": 4.53,
+     "nuageux": 3.64,
+     "pluie": 1.69,
+     "brume": 0.99,
+     "orage": 0.44
+    },
+    "été": {
+     "clair": 5.72,
+     "nuageux": 3.45,
+     "pluie": 1.66,
+     "brume": 1.13,
+     "orage": 0.34
+    },
+    "automne": {
+     "clair": 3.97,
+     "nuageux": 2.7,
+     "pluie": 1.64,
+     "brume": 1.07,
+     "orage": 0.69
+    },
+    "hiver": {
+     "clair": 3.09,
+     "nuageux": 2.44,
+     "pluie": 1.57,
+     "brume": 1.2,
+     "orage": 0.39
+    }
+   }
+  },
+  "magique": {
+   "biomes": [
+    "magic_glade"
+   ],
+   "weights_per_season": {
+    "printemps": {
+     "clair": 3.63,
+     "nuageux": 1.68,
+     "pluie": 1.59,
+     "brume": 0.83,
+     "orage": 0.63
+    },
+    "été": {
+     "clair": 6.59,
+     "nuageux": 3.5,
+     "pluie": 1.05,
+     "brume": 1.18,
+     "orage": 0.35
+    },
+    "automne": {
+     "clair": 5.69,
+     "nuageux": 2.35,
+     "pluie": 1.37,
+     "brume": 0.77,
+     "orage": 0.41
+    },
+    "hiver": {
+     "clair": 6.99,
+     "nuageux": 2.19,
+     "pluie": 1.06,
+     "brume": 1.12,
+     "orage": 0.64
+    }
+   }
+  }
+ },
+ "supreme_overrides": [
+  {
+   "supreme": "SUP_01",
+   "lair_world": [
+    -20032.0,
+    22336.0
+   ],
+   "radius_m": 5097.400000000001,
+   "forced_states": {
+    "cendres": 10.0,
+    "canicule": 10.0,
+    "vent de braise": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_02",
+   "lair_world": [
+    448.0,
+    -27968.0
+   ],
+   "radius_m": 5306.400000000001,
+   "forced_states": {
+    "blizzard": 10.0,
+    "silence gelé": 10.0,
+    "éclipse froide": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_03",
+   "lair_world": [
+    27584.0,
+    -20416.0
+   ],
+   "radius_m": 5999.400000000001,
+   "forced_states": {
+    "brume verte": 10.0,
+    "pluie de spores": 10.0,
+    "calme écrasant": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_04",
+   "lair_world": [
+    -28480.0,
+    -28736.0
+   ],
+   "radius_m": 3902.8,
+   "forced_states": {
+    "tempête cyclonique": 10.0,
+    "marées impossibles": 10.0,
+    "pluie de sel": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_05",
+   "lair_world": [
+    13504.0,
+    6080.0
+   ],
+   "radius_m": 5022.6,
+   "forced_states": {
+    "mirages meurtriers": 10.0,
+    "tempête de sable": 10.0,
+    "soleil double": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_06",
+   "lair_world": [
+    -28736.0,
+    -2112.0
+   ],
+   "radius_m": 3865.4,
+   "forced_states": {
+    "nuit prolongée": 10.0,
+    "brume basse": 10.0,
+    "silence d'oracle": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_07",
+   "lair_world": [
+    25408.0,
+    28096.0
+   ],
+   "radius_m": 5431.8,
+   "forced_states": {
+    "orages en chaîne": 10.0,
+    "tourbes d'éclairs": 10.0,
+    "grêle de verre": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_08",
+   "lair_world": [
+    -14400.0,
+    -28480.0
+   ],
+   "radius_m": 6252.400000000001,
+   "forced_states": {
+    "séismes lents": 10.0,
+    "poussière suspendue": 10.0,
+    "calme de tombe": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_09",
+   "lair_world": [
+    6720.0,
+    27072.0
+   ],
+   "radius_m": 4980.8,
+   "forced_states": {
+    "zones d'absence": 10.0,
+    "étoiles nouvelles": 10.0,
+    "météore silencieux": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  },
+  {
+   "supreme": "SUP_10",
+   "lair_world": [
+    7744.0,
+    -11072.0
+   ],
+   "radius_m": 3977.6000000000004,
+   "forced_states": {
+    "clair de juge": 10.0,
+    "chaleur accusatrice": 10.0,
+    "pluie de plumes": 10.0
+   },
+   "severity_curve": "linéaire : 0 au bord -> 1 au centre"
+  }
+ ],
+ "world_events": [
+  {
+   "id": "EVT_INVASION",
+   "name": "Marée Abyssale",
+   "trigger": "pleine lune de printemps",
+   "effect": "NAKH'THUL pousse ses monstres sur toutes les côtes pendant 2 jours"
+  },
+  {
+   "id": "EVT_CARAVANE",
+   "name": "Caravane Dorée",
+   "trigger": "chaque 12 jours",
+   "effect": "caravanes marchandes entre capitales, prix -15 %"
+  },
+  {
+   "id": "EVT_EBLOUEMENT",
+   "name": "Éboulement Sans Fin",
+   "trigger": "aléatoire (mines kharnides)",
+   "effect": "une grotte s'effondre, une autre s'ouvre — donjons régénérés (pondéré)"
+  },
+  {
+   "id": "EVT_JUGEMENT",
+   "name": "Passage du Jugement",
+   "trigger": "saison de l'été, 1×/an",
+   "effect": "AURATHAL traverse les plaines : PNJ confessent, crimes exposés"
+  },
+  {
+   "id": "EVT_GEL",
+   "name": "Souffle de KRYOS",
+   "trigger": "hiver, 2×/an",
+   "effect": "la limite des neiges descend de 1 400 m pendant 3 jours"
+  }
+ ],
+ "transition_seconds": 12,
+ "update_interval_s": 30
+}
