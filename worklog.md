@@ -212,3 +212,27 @@ Stage Summary:
 - Les 10 Suprêmes de l'affiche sont désormais JOUABLES EN 3D dans leur Sanctuaire : stats ultimes au-delà de toute échelle (999 999 999 ×5, niveau ∞), invincibilité absolue testable en direct (toute attaque inflige 0 dégât), 30 capacités signature déclenchables avec effets visuels.
 - Aucune régression : la création de personnage, le village, les arènes, le duel Aetherion et le Codex restent intacts.
 - Limites honnêtes : les Suprêmes restent invincibles par design (aucun n'est « vaincable » dans le Sanctuaire) ; le défi-boss Aetherion conserve son équilibrage serveur d'origine ; le rendu utilise des géométries procédurales (aucun asset externe importé).
+
+---
+Task ID: vertical-slice-mmo
+Agent: Super Z (main)
+Task: Charte MMO (30 sections) — PREMIÈRE MISSION : audit → architecture → Vertical Slice « Province de Solmère » jouable (monde persistant multijoueur)
+
+Work Log:
+- Audit complet : jeu Next.js jouable existant (auth/perso/village/arènes/Suprêmes), moteur worldgen Python (Gen3ia/WorldData), scripts Unity non compilables (dépendance documentée) ; erreurs trouvées : EADDRINUSE transitoire, warning viewport (corrigé), fausse alerte [m]-transport documentée
+- Installe socket.io 4.8 + socket.io-client ; store : phase 'province' + provinceCharacterId
+- Prisma : +8 modèles (Npc, NpcDeath, Building, ConstructionProject, WorldEvent, DungeonState, WorldState, ProvinceState) → db:push OK
+- world-data.ts partagé (géographie 480 m, heightAt serveur/client, 16 PNJ, 24 bâtiments, monstres, mini-boss, donjon, coûts reconstruction, invasion)
+- mini-services/world-sim (bun, port 3003) : GameServer 15 Hz, auth cookie, mouvement autoritaire + budget anti-speed-hack + anti-rejeu, snapshots 5 Hz/130 m, grâce reconnexion 45 s ; services : Combat, Npc (routines + permadeath), Building (7 états + reconstruction), Event (invasion), Dungeon (porte/mécanisme/coffre/boss persistants), Gen3ia (NPC/QUEST/WORLD agents)
+- Client : network.ts (socket.io + interpolation + prédiction + idempotence), parts.tsx (terrain partagé, 7 états visibles + 4 paliers chantier, forêt instanciée, donjon, entités), ProvinceWorld.tsx (caméra 3e personne, jour/nuit quantifié), ProvinceScreen.tsx (HUD complet, minimap, chat, quêtes, dialogue, mort/respawn, qualité, Android paysage)
+- Intégration : page.tsx phase 'province', bouton « ⚔ Province de Solmère » au village, layout viewport corrigé
+- Tests scripts/test_world_sim.mjs : 7 passes itératives → 51/51 verts (auth, anti-triche, multijoueur, combat+butin, permadeath+famille, destruction+reconstruction RESTORED, invasion repoussée +6 prospérité, donjon persistant, chat, redémarrage complet, monde vivant sans joueur)
+- Bugs réels trouvés/corrigés : DAY_LENGTH_S (24 s→24 min), flushDirty perte d'écritures (→writeSafe 3 tentatives), invasion au boot (→délai + clôture orphelines), sauvegarde gracieuse manquante (→SIGTERM flushAll), create→upsert projets, await hors async, désync état réseau/React (→source unique), tempête de re-renders (→quantification ciel, memo, throttling 3 Hz/1 Hz)
+- E2E navigateur : connexion→village→Province ; monde 3D rendu (ruines persistantes visibles !), HUD, chat diffusé, déplacement+caméra validés, horloge serveur 13h→15h, mobile 740×360 OK ; lint 0 erreur
+- Docs : Documentation/mmo/ = 15 documents charte + REALISATION_VERTICAL_SLICE.md (honnête : ce qui est fait/non fait, bugs, prochaines étapes) ; README mis à jour
+- Git : commit 71893c6 poussé vers missock237-spec/NEXORIA (main)
+
+Stage Summary:
+- VERTICAL SLICE MMO OPÉRATIONNEL : monde persistant multijoueur réel de bout en bout (serveur autoritaire + client 3D + SQLite + Gen3ia), 51/51 tests, lint propre, poussé sur GitHub
+- Honnêteté : Unity non compilable ici (documenté), 1 province (10 continents à venir), succession PNJ et autoscaling qualité non livrés, LLM Gen3ia non branché (règles déterministes), profilage Android réel impossible ici
+- Le jeu existant (création, arènes, Suprêmes) intact — aucune régression
