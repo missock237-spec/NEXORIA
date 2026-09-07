@@ -474,6 +474,63 @@ function TrainingDummy({ dummyRef }: { dummyRef: React.RefObject<THREE.Group | n
   )
 }
 
+// ── Portail des Arènes (mise à jour « Arènes & Suprêmes ») ──
+// Anneau runique qui pulse ; interagir ouvre le hub des 5 Arènes de Combat.
+function ArenaPortal() {
+  const ring = useRef<THREE.Mesh>(null)
+  const glow = useRef<THREE.Mesh>(null)
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime()
+    if (ring.current) {
+      const m = ring.current.material as THREE.MeshStandardMaterial
+      m.emissiveIntensity = 0.8 + Math.sin(t * 2.2) * 0.35
+      ring.current.rotation.z = t * 0.4
+    }
+    if (glow.current) {
+      const m = glow.current.material as THREE.MeshBasicMaterial
+      m.opacity = 0.16 + Math.sin(t * 1.6) * 0.06
+    }
+  })
+  return (
+    <group position={[11, 0, -7]}>
+      {/* Socle de pierre */}
+      <mesh position={[0, 0.12, 0]}>
+        <cylinderGeometry args={[1.7, 2, 0.24, 12]} />
+        <meshStandardMaterial color="#4c4458" roughness={0.9} />
+      </mesh>
+      {/* Anneau runique vertical */}
+      <mesh ref={ring} position={[0, 2.1, 0]}>
+        <torusGeometry args={[1.35, 0.12, 10, 40]} />
+        <meshStandardMaterial color="#3a3060" emissive="#b878f0" emissiveIntensity={0.9} roughness={0.4} />
+      </mesh>
+      {/* Voile lumineux */}
+      <mesh ref={glow} position={[0, 2.1, 0]}>
+        <circleGeometry args={[1.28, 32]} />
+        <meshBasicMaterial color="#c898ff" transparent opacity={0.18} side={THREE.DoubleSide} />
+      </mesh>
+      {/* Deux oriflammes d'arène */}
+      {[[-1.8, 0], [1.8, 0]].map(([x, z], i) => (
+        <group key={i} position={[x, 0, z]}>
+          <mesh position={[0, 1.5, 0]}>
+            <cylinderGeometry args={[0.05, 0.07, 3, 6]} />
+            <meshStandardMaterial color="#4a4038" roughness={1} />
+          </mesh>
+          <mesh position={[0.3, 2.5, 0]}>
+            <planeGeometry args={[0.62, 1.1]} />
+            <meshStandardMaterial color="#b878f0" side={THREE.DoubleSide} roughness={0.8} />
+          </mesh>
+        </group>
+      ))}
+      <Html center distanceFactor={12} position={[0, 3.9, 0]} zIndexRange={[20, 0]}>
+        <div className="whitespace-nowrap rounded-sm bg-[#0c0a14e0] px-2.5 py-1 text-center text-[13px] font-black text-[#e0c8ff] shadow" style={{ border: '1px solid #b878f088' }}>
+          Arènes de Combat
+          <div className="text-[9px] font-semibold uppercase tracking-widest text-[#b878f0]">5 arènes · 10 Suprêmes</div>
+        </div>
+      </Html>
+    </group>
+  )
+}
+
 // ── PNJ ──
 function npcAppearance(npc: NpcDef, index: number) {
   const raceIds = Object.keys(RACES)
@@ -517,6 +574,13 @@ function PlayerController({ world }: { world: EnterWorldResponse }) {
   const vel = useRef(new THREE.Vector3())
   const moveRef = useRef(0)
   const { camera, gl } = useThree()
+
+  // Hook de test (window.__nx) : orienter la caméra du village
+  useEffect(() => {
+    const nx = (window as unknown as { __nx?: Record<string, unknown> }).__nx
+    if (nx) nx.setVillageCam = (yaw: number) => { cam.current.yaw = yaw }
+    return () => { if (nx) delete nx.setVillageCam }
+  }, [])
 
   const raceDef = RACES[character.race as keyof typeof RACES]
   const equipMap = useMemo(() => {
@@ -669,6 +733,11 @@ function PlayerController({ world }: { world: EnterWorldResponse }) {
     if (dd < bestD) {
       best = { type: 'dummy', id: 'mannequin', name: 'Mannequin d’entraînement' }
     }
+    // Portail des Arènes
+    const dp = Math.hypot(11 - g.position.x, -7 - g.position.z)
+    if (dp < bestD) {
+      best = { type: 'arena_portal', id: 'arena_portal', name: 'Arènes de Combat' }
+    }
     playerState.near = best
   })
 
@@ -717,6 +786,7 @@ export function VillageWorld({ world }: { world: EnterWorldResponse }) {
         <Terrain village={village} />
         <VillageProps village={village} />
         <TrainingDummy dummyRef={dummyRef} />
+        <ArenaPortal />
         {village.npcs.map((n, i) => (
           <Npc key={n.id} npc={n} index={i} />
         ))}

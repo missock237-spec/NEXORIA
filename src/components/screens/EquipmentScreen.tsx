@@ -7,7 +7,8 @@ import { motion } from 'framer-motion'
 import { useCreatorStore } from '@/lib/store'
 import { AvatarPreview } from '@/components/three/AvatarPreview'
 import { EQUIPMENT_CATALOG } from '@/lib/game/classes'
-import type { CameraPreset, EquipmentDef } from '@/components/three/AvatarPreview'
+import type { CameraPreset } from '@/components/three/AvatarPreview'
+import type { EquipmentDef } from '@/lib/game/types'
 import type { EquipmentSlot } from '@/lib/game/types'
 
 const SLOT_LABELS: Record<string, string> = {

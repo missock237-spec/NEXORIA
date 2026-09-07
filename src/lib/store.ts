@@ -1,15 +1,51 @@
 'use client'
 
 // NEXORIA — Store du parcours de création / d'entrée dans le monde
+// + Mise à jour « Arènes & Suprêmes » : hub, duel, codex, boss.
 import { create } from 'zustand'
 import type {
   Appearance, ClassId, RaceDef, ClassDef, VillageDef, NameRules, QualityProfile,
 } from '@/lib/game/types'
+import type { ArenaDef } from '@/lib/game/arenas'
 import { QUALITY_PROFILES, loadQualityProfile } from '@/lib/game/config'
 
 export type Phase =
   | 'title' | 'auth' | 'charselect' | 'name' | 'race' | 'creator'
   | 'class' | 'equipment' | 'review' | 'creating' | 'loading' | 'village'
+  | 'arenas' | 'arena' | 'codex' | 'boss'
+
+// ── Arènes : adversaire désigné par le matchmaking serveur ──
+export interface MatchOpponent {
+  name: string
+  race: string
+  class: string
+  rating: number
+  rankTitle: string
+  stats: { maxHp: number; attaque: number; defense: number; vitesse: number }
+}
+
+export interface ActiveMatch {
+  id: string
+  arenaId: string
+  format: string
+  training: boolean
+  seed: number
+  opponent: MatchOpponent
+  arena: Pick<ArenaDef, 'id' | 'name' | 'tagline' | 'recommendedLevel' | 'hazards' | 'visuals'>
+}
+
+// ── Suprêmes : rencontre boss créée par le serveur ──
+export interface BossEncounter {
+  id: string
+  supremeId: string
+  bossHp: number
+  seed: number
+  phases: { index: number; name: string; hpThreshold: number; mechanic: string; attacks: string[] }[]
+  boss: { name: string; title: string; element: string; recommendedLevel: number }
+  playerLevel: number
+  attempts: number
+  defeatedBefore: boolean
+}
 
 export interface CharacterSummary {
   id: string
@@ -65,6 +101,10 @@ interface CreatorState {
   isMobile: boolean
   error: string | null
 
+  // État « Arènes & Suprêmes »
+  activeMatch: ActiveMatch | null
+  activeEncounter: BossEncounter | null
+
   setPhase: (p: Phase) => void
   setAccount: (a: { accountId: string; email: string } | null) => void
   setCharacters: (c: CharacterSummary[]) => void
@@ -75,6 +115,8 @@ interface CreatorState {
   setDraftClass: (c: ClassDef | null) => void
   setCreationResult: (r: CreationResult | null) => void
   setActiveWorld: (w: import('@/lib/game/types').EnterWorldResponse | null) => void
+  setActiveMatch: (m: ActiveMatch | null) => void
+  setActiveEncounter: (e: BossEncounter | null) => void
   setQuality: (q: QualityProfile['id']) => void
   setError: (e: string | null) => void
   initPlatform: () => void
@@ -95,6 +137,8 @@ export const useCreatorStore = create<CreatorState>((set) => ({
   quality: QUALITY_PROFILES.HIGH,
   isMobile: false,
   error: null,
+  activeMatch: null,
+  activeEncounter: null,
 
   setPhase: (p) => set((s) => ({ phase: p, previousPhase: s.phase, error: null })),
   setAccount: (a) => set({ account: a }),
@@ -107,6 +151,8 @@ export const useCreatorStore = create<CreatorState>((set) => ({
   setDraftClass: (c) => set({ draftClass: c }),
   setCreationResult: (r) => set({ creationResult: r }),
   setActiveWorld: (w) => set({ activeWorld: w }),
+  setActiveMatch: (m) => set({ activeMatch: m }),
+  setActiveEncounter: (e) => set({ activeEncounter: e }),
   setQuality: (q) => {
     try { window.localStorage.setItem('nexoria_quality', q) } catch { /* ignore */ }
     set({ quality: QUALITY_PROFILES[q] })

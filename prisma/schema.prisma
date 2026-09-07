@@ -49,8 +49,86 @@ model Character {
   xp              Int      @default(0)
   gold            Int      @default(0)
   questsJson      String   @default("{}")
+  titlesJson      String   @default("[]") // titres gagnés (arènes, boss)
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
+  arenaProfile    ArenaProfile?
+  arenaMatches    ArenaMatch[]
+  supremeProgress SupremeProgress[]
+  supremeEncounters SupremeEncounter[]
+
   @@index([accountId])
 }
+
+// ── ARÈNES ── Profil de classement (Elo) d'un personnage
+model ArenaProfile {
+  id           String   @id @default(cuid())
+  characterId  String   @unique
+  character    Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  rating       Int      @default(1000)
+  wins         Int      @default(0)
+  losses       Int      @default(0)
+  streak       Int      @default(0)
+  bestStreak   Int      @default(0)
+  milestonesJson String @default("[]") // paliers de récompenses déjà accordés
+  updatedAt    DateTime @updatedAt
+}
+
+// ── ARÈNES ── Un duel (matchmaking → résolution serveur)
+model ArenaMatch {
+  id             String   @id @default(cuid())
+  characterId    String
+  character      Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  arenaId        String
+  opponentName   String
+  opponentRace   String
+  opponentClass  String
+  opponentRating Int
+  format         String   // '1v1' | '2v2' | '3v3' (format d'affiche de l'arène)
+  training       Boolean  @default(false) // duel sous le niveau recommandé
+  status         String   @default("pending") // pending | resolved | expired
+  seed           Int      // graine déterministe du combat (côté client pour les visuals)
+  resolved       String?  // 'win' | 'loss'
+  ratingDelta    Int?
+  durationSec    Int?
+  createdAt      DateTime @default(now())
+  resolvedAt     DateTime?
+
+  @@index([characterId])
+  @@index([status])
+}
+
+// ── SUPRÊMES ── Progression d'un personnage contre un boss mondial
+model SupremeProgress {
+  id            String   @id @default(cuid())
+  characterId   String
+  character     Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  supremeId     String
+  attempts      Int      @default(0)
+  defeated      Boolean  @default(false)
+  firstDefeatAt DateTime?
+  rewardsJson   String   @default("[]")
+  updatedAt     DateTime @updatedAt
+
+  @@unique([characterId, supremeId])
+  @@index([characterId])
+}
+
+// ── SUPRÊMES ── Une tentative de boss mondial (phases validées serveur)
+model SupremeEncounter {
+  id           String   @id @default(cuid())
+  characterId  String
+  character    Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  supremeId    String
+  bossHp       Int      // PV totaux du boss pour cette tentative (calculés serveur)
+  phasesPassed Int      @default(0) // nombre de phases validées dans l'ordre
+  status       String   @default("pending") // pending | victory | defeat | expired
+  seed         Int
+  createdAt    DateTime @default(now())
+  resolvedAt   DateTime?
+
+  @@index([characterId])
+  @@index([status])
+}
+

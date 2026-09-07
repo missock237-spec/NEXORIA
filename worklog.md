@@ -120,3 +120,75 @@ Stage Summary:
   src/components/screens/ (10 écrans), scripts/test_*.py|sh
 - Limites honnêtes : pas d'audio, PNJ statiques (idle seul), monde solo local
   (pas de multijoueur temps réel), position sauvegardée au spawn (pas en continu)
+
+---
+Task ID: 11
+Agent: Super Z (main)
+Task: MISE À JOUR « ARÈNES & SUPRÊMES » — intégration des 3 visuels officiels fournis par l'utilisateur
+
+Work Log:
+- Analyé les 3 images uploadées : (1) affiche « Les 5 Arènes de Combat », (2) fiche complète
+  AETHERION Suprême #01, (3) affiche « Les 10 Suprêmes »
+- Contenu : src/lib/game/arenas.ts (5 arènes : noms, taglines, formats de duel, environnements,
+  thèmes, niveaux recommandés, particularités, palettes visuelles, équilibrage serveur, rangs
+  Elo + 5 paliers de récompenses exclusives), src/lib/game/supremes.ts (10 Suprêmes du Codex
+  avec lore officiel + spec Aetherion : 3 phases avec seuils 66/33 %, citations, récompenses
+  officielles, formule PV serveur), src/lib/game/gladiators.ts (roster de 30 gladiateurs IA
+  nommés par arène, matchmaking Elo ±proche avec rotation déterministe)
+- Prisma : +ArenaProfile (Elo, W/L, séries, paliers), +ArenaMatch (duel pending→resolved,
+  seed, mode entraînement), +SupremeProgress (tentatives, vaincu, récompenses),
+  +SupremeEncounter (tentative active, PV boss serveur, phases), Character.titlesJson
+- API 100 % serveur-authoritative : GET /api/arenas, POST /api/arenas/match (Elo, stats
+  adversaire calculées serveur, seed 31 bits), POST /api/arenas/resolve (validation durée/
+  propriété/double-résolution, Elo K=32, or, paliers, titres), GET /api/arenas/leaderboard
+  (fusion vrais joueurs + roster IA), POST /api/supremes/challenge (PV boss par niveau,
+  refus des Suprêmes non implémentés), POST /api/supremes/resolve (phases ordonnées ≥8 s
+  chacune, récompenses officielles première victoire : Cœur d'Aetherion, skin Foudre,
+  matériaux, titre « Celui qui a défié le Roi du Ciel »), GET /api/supremes
+- 3D : ArenaWorld.tsx (arène circulaire + 5 environnements thématiques : îles flottantes/
+  plateformes mobiles, volcan/lave/chaînes, arbre ancestral/camouflage, ruines/bras rotatif/
+  brume, glaces/aurore/inertie ; dangers télégraphiés qui blessent les DEUX combattants ;
+  IA du gladiateur : poursuite/strafe/télégraphe/frappe/récupération ; vents, tempêtes,
+  sol glissant à inertie), BossWorld.tsx (forteresse céleste marbre/or, Aetherion procédural
+  ~12 unités : ailes à plumes animées, masque/couronne 5 pointes, noyau d'énergie, anneaux
+  flottants, lame d'éclair, forme spirituelle translucide en phase 3 ; éclairs ciblés
+  télégraphiés, ondes de choc annulaires, gravité, fenêtres de vulnérabilité du noyau,
+  dégâts plafonnés à 16 %/coup)
+- UI : ArenaHubScreen (réplique fidèle de l'affiche : titre, citation, 5 cartes 2+3 avec
+  spécifications, vue de dessus, 3 systèmes officiels, profil Elo, classement temps réel,
+  derniers duels, paliers), ArenaDuelScreen (double barre de PV, télégraphe adverse, alertes
+  dangers, overlay victoire/défaite avec delta Elo/or/récompenses), CodexScreen (grille 10
+  cartes avec badges d'élément, lore, état Vaincu, bouton Défier/Bientôt), BossScreen (barre
+  de boss avec marqueurs de phases, bannières de phase avec citations, panneau mécanique,
+  indicateur « noyau exposé », récompenses officielles)
+- Village : portail runique des Arènes (anneau pulsant + oriflammes + panneau) près du
+  mannequin, proximité détectée (type arena_portal), interaction E/bouton « Arènes »
+- Contrôles partagés : src/components/ui-game/Controls.tsx (clavier ZQSD/WASD/flèches +
+  joystick tactile réutilisés par duel et boss — correction : l'arène n'avait AUCUN contrôle
+  de déplacement initialement)
+- Bugs trouvés en testant et corrigés : useCallback non importé (2 crashs ArenaWorld/BossWorld),
+  doublon aiMoveProxy, seed > INT SQLite (contraint 31 bits), `gold` hors de portée dans
+  Fortress, formes de réponses API mal dépliées (activeMatch.id / encounter.bossHp undefined
+  → validations serveur en échec), tolérance horloge serveur 5 s → 2 min (temps de montage),
+  expiration des duels/tentatives orphelins (3 min / 45 min), affichage « Elfe_noir » →
+  « Elfe Noir » au classement
+- Tests : scripts/test_arenas_api.py → 40/40 OK (sessions, propriété, arène inconnue, double
+  matchmaking, durée <4 s, match inexistant, double résolution, Elo positif, or entraînement
+  réduit, classement fusionné trié, IGNAROK refusé, PV boss 325 au niveau 1, victoire éclair
+  refusée, défaite/double refusées, victoire 3 phases honnête → 4 récompenses + titre,
+  compte étranger refusé) ; Agent Browser : village → portail → hub (fidèle affiche) →
+  classement → duel Forêt Éternelle gagné au corps à corps (8 coups, 137→15 PV) → Elo 1008
+  +13 or → codex → Aetherion vaincu en 43 s (phases 34,4 s/8,25 s, 325→0 PV, joueur 61/137)
+  → 4 récompenses officielles + titre → Codex « VAINCU » ; mobile Pixel 7 validé (hub, duel)
+
+Stage Summary:
+- MISE À JOUR « ARÈNES & SUPRÊMES » : OPÉRATIONNELLE de bout en bout, serveur-authoritative
+- Les 5 arènes de l'affiche sont jouables (matchmaking, Elo, dangers, entraînement auto <niveau
+  recommandé), le classement fusionne joueurs réels + 30 gladiateurs, le Codex des 10 Suprêmes
+  est consultable et AETHERION est un boss mondial à 3 phases fidèle à sa fiche, avec ses
+  récompenses officielles et son titre exclusif
+- Limites honnêtes : duels 1v1 solo contre gladiateurs IA (pas de multijoueur temps réel —
+  les formats 2v2/3v3 de l'affiche sont affichés mais livrés en duel solo) ; le résultat du
+  combat est joué côté client puis validé en plausibilité par le serveur (durée minimale,
+  résolution unique, phases ordonnées) ; les 9 autres Suprêmes sont consultables mais non
+  affrontables (badge « Bientôt affrontable »)

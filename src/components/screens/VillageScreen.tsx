@@ -166,7 +166,8 @@ export function VillageScreen() {
     if (!n) return
     if (n.type === 'npc') handleNpcTalk(n.role ?? 'garde', n.name)
     else if (n.type === 'dummy') hitDummy()
-  }, [advanceDialog, handleNpcTalk, hitDummy])
+    else if (n.type === 'arena_portal') setPhase('arenas')
+  }, [advanceDialog, handleNpcTalk, hitDummy, setPhase])
 
   // Touche E
   useEffect(() => {
@@ -267,7 +268,11 @@ export function VillageScreen() {
       {/* ── Invite d'interaction ── */}
       {near && !dialog && introDone && (
         <div className="pointer-events-none absolute bottom-28 left-1/2 z-10 -translate-x-1/2 rounded-sm border border-[#b8985c88] bg-[#0c0a14e6] px-4 py-2 text-sm text-[#e8d8b0] backdrop-blur sm:bottom-24">
-          {near.type === 'npc' ? `Parler à ${near.name}` : 'Frapper le mannequin'}
+          {near.type === 'npc'
+            ? `Parler à ${near.name}`
+            : near.type === 'arena_portal'
+              ? 'Entrer dans les Arènes'
+              : 'Frapper le mannequin'}
           {!isMobile && <span className="ml-2 rounded-sm bg-[#2a2038] px-1.5 py-0.5 text-[10px] font-bold text-[#d4b878]">E</span>}
         </div>
       )}
@@ -286,9 +291,9 @@ export function VillageScreen() {
       {isMobile && introDone && near && !dialog && (
         <button
           onClick={interact}
-          className="absolute bottom-8 right-6 z-10 h-20 w-20 rounded-full border-2 border-[#b8985c88] bg-[#2a2038dd] text-xs font-black uppercase tracking-wider text-[#e8d8b0] backdrop-blur active:scale-95"
+          className={`absolute bottom-8 right-6 z-10 h-20 w-20 rounded-full border-2 bg-[#2a2038dd] text-xs font-black uppercase tracking-wider backdrop-blur active:scale-95 ${near.type === 'arena_portal' ? 'border-[#b878f0cc] text-[#e0c8ff]' : 'border-[#b8985c88] text-[#e8d8b0]'}`}
         >
-          {near.type === 'npc' ? 'Parler' : 'Frapper'}
+          {near.type === 'npc' ? 'Parler' : near.type === 'arena_portal' ? 'Arènes' : 'Frapper'}
         </button>
       )}
 

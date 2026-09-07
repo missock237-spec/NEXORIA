@@ -107,6 +107,9 @@ export interface EquipmentItem {
   description: string
 }
 
+// Alias historique utilisé par le catalogue d'équipement et les vues 3D
+export type EquipmentDef = EquipmentItem
+
 export interface CharacterEquipment {
   [slot: string]: string // slot -> equipmentId
 }

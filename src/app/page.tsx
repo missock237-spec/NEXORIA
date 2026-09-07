@@ -17,6 +17,10 @@ import { EquipmentScreen } from '@/components/screens/EquipmentScreen'
 import { ReviewScreen } from '@/components/screens/ReviewScreen'
 import { CreatingScreen, LoadingScreen } from '@/components/screens/TransitionScreens'
 import { VillageScreen } from '@/components/screens/VillageScreen'
+import { ArenaHubScreen } from '@/components/screens/ArenaHubScreen'
+import { ArenaDuelScreen } from '@/components/screens/ArenaDuelScreen'
+import { CodexScreen } from '@/components/screens/CodexScreen'
+import { BossScreen } from '@/components/screens/BossScreen'
 import type { WorldConfig } from '@/lib/store'
 
 export default function Home() {
@@ -61,6 +65,10 @@ export default function Home() {
       {phase === 'creating' && <CreatingScreen />}
       {phase === 'loading' && <LoadingScreen />}
       {phase === 'village' && <VillageScreen />}
+      {phase === 'arenas' && <ArenaHubScreen />}
+      {phase === 'arena' && <ArenaDuelScreen />}
+      {phase === 'codex' && <CodexScreen />}
+      {phase === 'boss' && <BossScreen />}
     </main>
   )
 }
